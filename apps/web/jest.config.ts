@@ -11,6 +11,10 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@motohub/ui$': '<rootDir>/../../packages/ui/src/index.ts',
+    '^@motohub/config$': '<rootDir>/../../packages/config/src/index.ts',
+    '^@motohub/types$': '<rootDir>/../../packages/types/src/index.ts',
+    '^@motohub/utils$': '<rootDir>/../../packages/utils/src/index.ts',
   },
 };
 

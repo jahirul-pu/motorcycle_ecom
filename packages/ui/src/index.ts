@@ -1,1 +1,1 @@
-export const ui = 'ui';
+export * from './Button';
