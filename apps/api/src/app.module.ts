@@ -10,6 +10,7 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { BrandsModule } from './modules/brands/brands.module';
+import { ProductsModule } from './modules/products/products.module';
 
 @Module({
   imports: [
@@ -52,6 +53,7 @@ import { BrandsModule } from './modules/brands/brands.module';
     AuthModule,
     CategoriesModule,
     BrandsModule,
+    ProductsModule,
   ],
   providers: [
     {

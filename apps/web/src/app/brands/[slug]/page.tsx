@@ -4,7 +4,8 @@ import * as React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { catalogService } from '@/services/catalog.service';
 import Navbar from '@/components/layout/Navbar';
-import { Loader2, ChevronRight, Home, ShieldCheck, Globe, ShoppingBag } from 'lucide-react';
+import ProductGrid from '@/components/catalog/ProductGrid';
+import { Loader2, ChevronRight, Home, ShieldCheck, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 interface BrandDetailPageProps {
@@ -100,16 +101,8 @@ export default function BrandDetailPage({ params }: BrandDetailPageProps) {
                 </div>
               </div>
 
-              {/* Products placeholder */}
-              <div className="text-center py-20 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-zinc-900 text-zinc-500 mb-3">
-                  <ShoppingBag className="h-6 w-6" />
-                </div>
-                <h3 className="text-sm font-bold text-white">No Products Under {brand.name}</h3>
-                <p className="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">
-                  Catalog listings for {brand.name} compatibility parts are coming soon!
-                </p>
-              </div>
+              {/* Brand Products Section */}
+              <BrandProductsSection slug={slug} brandName={brand.name} />
             </div>
           )}
         </div>
@@ -117,3 +110,27 @@ export default function BrandDetailPage({ params }: BrandDetailPageProps) {
     </div>
   );
 }
+
+interface BrandProductsSectionProps {
+  slug: string;
+  brandName: string;
+}
+
+function BrandProductsSection({ slug, brandName }: BrandProductsSectionProps) {
+  const { data: productsData, isLoading } = useQuery({
+    queryKey: ['products', 'brand', slug],
+    queryFn: () => catalogService.getProducts({ brandSlug: slug, limit: 12 }),
+  });
+
+  const products = productsData?.items || [];
+
+  return (
+    <div className="space-y-4 pt-6 border-t border-zinc-900">
+      <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
+        Products under {brandName}
+      </h2>
+      <ProductGrid products={products} isLoading={isLoading} limit={6} />
+    </div>
+  );
+}
+

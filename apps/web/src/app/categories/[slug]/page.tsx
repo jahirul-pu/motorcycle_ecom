@@ -4,8 +4,8 @@ import * as React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { catalogService } from '@/services/catalog.service';
 import Navbar from '@/components/layout/Navbar';
-import CategoryCard from '@/components/catalog/CategoryCard';
-import { Loader2, ChevronRight, Home, LayoutGrid } from 'lucide-react';
+import ProductGrid from '@/components/catalog/ProductGrid';
+import { Loader2, ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
 
 interface CategoryDetailPageProps {
@@ -102,28 +102,8 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
                 </p>
               </div>
 
-              {category.children && category.children.length > 0 ? (
-                <div className="space-y-4">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
-                    Explore Subcategories
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {category.children.map((sub) => (
-                      <CategoryCard key={sub.id} category={sub} />
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center py-20 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
-                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-zinc-900 text-zinc-500 mb-3">
-                    <LayoutGrid className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-sm font-bold text-white">No Products Listed Yet</h3>
-                  <p className="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">
-                    We are currently populating inventory parts compatibility. Check back soon!
-                  </p>
-                </div>
-              )}
+              {/* Query products belonging to this category */}
+              <CategoryProductsSection slug={slug} />
             </div>
           )}
         </div>
@@ -131,3 +111,26 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
     </div>
   );
 }
+
+interface CategoryProductsSectionProps {
+  slug: string;
+}
+
+function CategoryProductsSection({ slug }: CategoryProductsSectionProps) {
+  const { data: productsData, isLoading } = useQuery({
+    queryKey: ['products', 'category', slug],
+    queryFn: () => catalogService.getProducts({ categorySlug: slug, limit: 12 }),
+  });
+
+  const products = productsData?.items || [];
+
+  return (
+    <div className="space-y-4 pt-6 border-t border-zinc-900">
+      <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
+        Products in this Category
+      </h2>
+      <ProductGrid products={products} isLoading={isLoading} limit={6} />
+    </div>
+  );
+}
+
