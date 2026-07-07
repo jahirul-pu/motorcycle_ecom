@@ -67,9 +67,9 @@ Version: 1.0
 
 ## Tooling
 
-- [ ] ESLint
-- [ ] Prettier
-- [ ] Husky
+- [x] ESLint
+- [x] Prettier
+- [x] Husky
 - [ ] lint-staged
 
 ---
@@ -194,7 +194,7 @@ Version: 1.0
 Phase 1
 
 ```
-44%
+50%
 ```
 
 Phase 2
@@ -252,13 +252,13 @@ Phase 1
 Current Milestone
 
 ```
-ESLint & Prettier
+Jest & Testing
 ```
 
 Current Task
 
 ```
-Configure ESLint and Prettier monorepo rules and workspace packages.
+Configure Jest testing harness for unit and integration testing inside api and web workspaces.
 ```
 
 Status
@@ -280,7 +280,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-7%
+8%
 ```
 
 Version

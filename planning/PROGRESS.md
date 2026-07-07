@@ -14,13 +14,13 @@ Phase 1 — Foundation
 
 # Current Milestone
 
-ESLint & Prettier
+Jest & Testing
 
 ---
 
 # Current Task
 
-Configure ESLint and Prettier monorepo rules and workspace packages.
+Configure Jest testing harness for unit and integration testing inside api and web workspaces.
 
 ---
 
@@ -64,6 +64,10 @@ Not Started
 - Create apps/api/Dockerfile for production build NestJS container
 - Create apps/web/Dockerfile for production build Next.js container
 - Configure multi-container docker-compose stack settings appending api and web services
+- Create root-level `.eslintrc.js`, `.prettierrc`, and `.prettierignore` configurations
+- Install ESLint TypeScript parsers, decorators support, and Prettier integration plugins
+- Setup workspace formatting and lint rules, verifying zero workspace warnings or errors
+- Configure Husky git pre-commit hooks to automate code styling checkups
 
 ---
 
@@ -75,10 +79,9 @@ None
 
 # Next Tasks
 
-1. Configure root ESLint file and extends mappings
-2. Configure package-level ESLint profiles in apps and packages
-3. Configure root Prettier format configs (.prettierrc, .prettierignore)
-4. Verify monorepo lint and format checks run successfully
+1. Configure Jest test runner settings in apps/api and apps/web
+2. Configure shared unit testing configurations and compiler support
+3. Verify test check script commands execute successfully
 
 ---
 
@@ -116,7 +119,7 @@ develop
 ```
 Planning          ████████████████████ 100%
 
-Foundation        ████████░░░░░░░░░░░░  44%
+Foundation        ██████████░░░░░░░░░░  50%
 
 Authentication    ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -136,18 +139,18 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-7%
+8%
 ```
 
 ---
 
 # Session Notes
 
-- Created Dockerfile build stages for Next.js web application and NestJS backend services.
-- Updated multi-container docker-compose configurations integrating database, caching, and custom app containers.
+- Configured root-level ESLint and Prettier configs formatting and linting code workspace-wide.
+- Integrated Husky pre-commit hooks running checks automatically during commits.
 
 ---
 
 # Next Session Goal
 
-Complete Phase 1, Milestone 8 — ESLint & Prettier.
+Complete Phase 1, Milestone 9 — Jest & Testing.
