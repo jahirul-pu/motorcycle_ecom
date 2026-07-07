@@ -1,0 +1,11 @@
+# pnpm-workspace.yaml
+
+packages:
+
+  - "apps/*"
+
+  - "packages/*"
+
+  - "tools/*"
+
+  - "scripts/*"
