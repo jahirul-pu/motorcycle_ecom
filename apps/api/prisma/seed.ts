@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   console.log('Clearing database tables...');
-  
+
   // Clean tables in reverse order of dependencies
   await prisma.productCompatibility.deleteMany();
   await prisma.productSpecification.deleteMany();
@@ -19,12 +19,12 @@ async function main() {
   await prisma.media.deleteMany();
   await prisma.category.deleteMany();
   await prisma.brand.deleteMany();
-  
+
   await prisma.motorcycleVariant.deleteMany();
   await prisma.motorcycleGeneration.deleteMany();
   await prisma.motorcycleModel.deleteMany();
   await prisma.motorcycleBrand.deleteMany();
-  
+
   await prisma.attributeOption.deleteMany();
   await prisma.attribute.deleteMany();
   await prisma.specification.deleteMany();
@@ -190,7 +190,7 @@ async function main() {
   }
 
   console.log('Seeding products & related entities...');
-  
+
   // Helper to create Media
   const createMedia = async (filename: string, storageKey: string) => {
     return prisma.media.create({
@@ -210,117 +210,121 @@ async function main() {
       name: 'Motul 7100 10W-40 4T',
       slug: 'motul-7100-10w40-4t',
       shortDescription: '100% Synthetic Ester high performance motorcycle oil.',
-      description: 'Motul 7100 is a 100% synthetic 4-stroke engine oil developed to improve engine performance and wear protection. Its high oil film resistance at high temperatures protects your motorcycle engine under tough urban or racing environments.',
+      description:
+        'Motul 7100 is a 100% synthetic 4-stroke engine oil developed to improve engine performance and wear protection. Its high oil film resistance at high temperatures protects your motorcycle engine under tough urban or racing environments.',
       status: 'active',
       weight: 1.0,
       brandSlug: 'motul',
       categorySlug: 'engine-oil',
-      imageUrl: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&auto=format&fit=crop&q=80',
+      imageUrl:
+        'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&auto=format&fit=crop&q=80',
       price: { regularPrice: 1550, salePrice: 1450 },
       inventory: { availableQuantity: 50, lowStockThreshold: 5 },
       specs: [
         { name: 'Weight', value: '1.0 kg' },
         { name: 'Country of Origin', value: 'France' },
-        { name: 'Warranty', value: 'No Warranty' }
+        { name: 'Warranty', value: 'No Warranty' },
       ],
-      attrs: [
-        { name: 'Viscosity', value: '10W-40' }
-      ],
-      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15', 'FZS V3', 'CBR150R', 'GSX-R150']
+      attrs: [{ name: 'Viscosity', value: '10W-40' }],
+      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15', 'FZS V3', 'CBR150R', 'GSX-R150'],
     },
     {
       sku: 'YML-GP-10W40-1L',
       name: 'Yamalube GP Racing 10W-40',
       slug: 'yamalube-gp-racing-10w40',
       shortDescription: 'Yamaha genuine high performance fully synthetic lubricant.',
-      description: 'Yamalube GP Racing Spec oil is formulated with advanced additives to yield maximum acceleration and power output. Engineered specifically for Yamaha 4-stroke performance engines.',
+      description:
+        'Yamalube GP Racing Spec oil is formulated with advanced additives to yield maximum acceleration and power output. Engineered specifically for Yamaha 4-stroke performance engines.',
       status: 'active',
       weight: 1.0,
       brandSlug: 'yamalube',
       categorySlug: 'engine-oil',
-      imageUrl: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&auto=format&fit=crop&q=80',
+      imageUrl:
+        'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&auto=format&fit=crop&q=80',
       price: { regularPrice: 1200, salePrice: 1100 },
       inventory: { availableQuantity: 30, lowStockThreshold: 5 },
       specs: [
         { name: 'Weight', value: '1.0 kg' },
         { name: 'Country of Origin', value: 'Japan' },
-        { name: 'Warranty', value: 'No Warranty' }
+        { name: 'Warranty', value: 'No Warranty' },
       ],
-      attrs: [
-        { name: 'Viscosity', value: '10W-40' }
-      ],
-      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15', 'FZS V3']
+      attrs: [{ name: 'Viscosity', value: '10W-40' }],
+      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15', 'FZS V3'],
     },
     {
       sku: 'AST-GP-PLUS-J-L',
       name: 'Alpinestars T-GP Plus R v3 Jacket',
       slug: 'alpinestars-t-gp-plus-r-v3-jacket',
       shortDescription: 'Premium textile sport riding jacket with CE certified armor.',
-      description: 'Featuring a highly durable and abrasion resistant poly-fabric main shell and subtly incorporated class-leading Nucleon Flex Plus protection, the T-GP Plus R v3 Jacket is designed to keep you safe and comfortable as you hold the throttle open.',
+      description:
+        'Featuring a highly durable and abrasion resistant poly-fabric main shell and subtly incorporated class-leading Nucleon Flex Plus protection, the T-GP Plus R v3 Jacket is designed to keep you safe and comfortable as you hold the throttle open.',
       status: 'active',
       weight: 2.2,
       brandSlug: 'alpinestars',
       categorySlug: 'riding-gear',
-      imageUrl: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80',
+      imageUrl:
+        'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80',
       price: { regularPrice: 18500, salePrice: null },
       inventory: { availableQuantity: 12, lowStockThreshold: 2 },
       specs: [
         { name: 'Weight', value: '2.2 kg' },
         { name: 'Country of Origin', value: 'Italy' },
         { name: 'Certification', value: 'CE Certified' },
-        { name: 'Warranty', value: '1 Year Brand Warranty' }
+        { name: 'Warranty', value: '1 Year Brand Warranty' },
       ],
-      attrs: [
-        { name: 'Color', value: 'Black' }
-      ],
-      compatibleModels: []
+      attrs: [{ name: 'Color', value: 'Black' }],
+      compatibleModels: [],
     },
     {
       sku: 'KYT-TTC-CARBON-M',
       name: 'KYT TT Course Helmet',
       slug: 'kyt-tt-course-helmet',
       shortDescription: 'Full-face racing helmet with wind-tunnel tested aerodynamics.',
-      description: 'TT Course, the KYT full-face helmet. Its shapes have been thoroughly studied in the wind tunnel to achieve the best aerodynamic performances without neglecting style. The fine inner lining has been optimized to offer the best performance in terms of comfort and moisture flow.',
+      description:
+        'TT Course, the KYT full-face helmet. Its shapes have been thoroughly studied in the wind tunnel to achieve the best aerodynamic performances without neglecting style. The fine inner lining has been optimized to offer the best performance in terms of comfort and moisture flow.',
       status: 'active',
       weight: 1.45,
       brandSlug: 'kyt',
       categorySlug: 'helmets',
-      imageUrl: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=600&auto=format&fit=crop&q=80',
+      imageUrl:
+        'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=600&auto=format&fit=crop&q=80',
       price: { regularPrice: 8500, salePrice: 7800 },
       inventory: { availableQuantity: 4, lowStockThreshold: 1 },
       specs: [
         { name: 'Weight', value: '1.45 kg' },
         { name: 'Country of Origin', value: 'Indonesia' },
         { name: 'Certification', value: 'ECE 22.05' },
-        { name: 'Warranty', value: '2 Years Manufacturer Warranty' }
+        { name: 'Warranty', value: '2 Years Manufacturer Warranty' },
       ],
       attrs: [
         { name: 'Color', value: 'Carbon' },
-        { name: 'Helmet Size', value: 'M' }
+        { name: 'Helmet Size', value: 'M' },
       ],
-      compatibleModels: []
+      compatibleModels: [],
     },
     {
       sku: 'YML-R15-BP-FRONT',
       name: 'Yamaha R15 Genuine Brake Pads (Front)',
       slug: 'yamaha-r15-genuine-brake-pads-front',
       shortDescription: 'Genuine Yamaha replacement front brake pads for R15.',
-      description: 'Original Yamaha replacement parts guarantee optimal braking performance, longevity, and perfect compatibility. Manufactured specifically for Yamaha Nissin caliper installations.',
+      description:
+        'Original Yamaha replacement parts guarantee optimal braking performance, longevity, and perfect compatibility. Manufactured specifically for Yamaha Nissin caliper installations.',
       status: 'active',
       weight: 0.15,
       brandSlug: 'yamalube',
       categorySlug: 'spares',
-      imageUrl: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&auto=format&fit=crop&q=80',
+      imageUrl:
+        'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&auto=format&fit=crop&q=80',
       price: { regularPrice: 1800, salePrice: 1650 },
       inventory: { availableQuantity: 25, lowStockThreshold: 3 },
       specs: [
         { name: 'Weight', value: '0.15 kg' },
         { name: 'Country of Origin', value: 'India' },
-        { name: 'Warranty', value: 'No Warranty' }
+        { name: 'Warranty', value: 'No Warranty' },
       ],
       attrs: [],
-      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15']
-    }
+      compatibleModels: ['R15 V3', 'R15 V4', 'MT-15'],
+    },
   ];
 
   for (const prodData of products) {

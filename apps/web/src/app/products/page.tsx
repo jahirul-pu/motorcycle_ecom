@@ -8,7 +8,14 @@ import { useQuery } from '@tanstack/react-query';
 import { catalogService } from '@/services/catalog.service';
 import Navbar from '@/components/layout/Navbar';
 import ProductGrid from '@/components/catalog/ProductGrid';
-import { Loader2, SlidersHorizontal, ArrowUpDown, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import {
+  Loader2,
+  SlidersHorizontal,
+  ArrowUpDown,
+  ChevronLeft,
+  ChevronRight,
+  RotateCcw,
+} from 'lucide-react';
 
 function ProductsContent() {
   const router = useRouter();
@@ -33,10 +40,7 @@ function ProductsContent() {
   });
 
   // Fetch products based on filters
-  const {
-    data: productsData,
-    isLoading: isLoadingProducts,
-  } = useQuery({
+  const { data: productsData, isLoading: isLoadingProducts } = useQuery({
     queryKey: ['products', categorySlug, brandSlug, sort, page],
     queryFn: () =>
       catalogService.getProducts({
@@ -75,25 +79,25 @@ function ProductsContent() {
   return (
     <div className="space-y-8">
       {/* Page Header */}
-      <div className="border-b border-zinc-900 pb-5">
-        <h1 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-2">
-          <SlidersHorizontal className="h-7 w-7 text-amber-500" />
+      <div className="border-b border-zinc-200 pb-5">
+        <h1 className="text-3xl font-extrabold text-zinc-900 tracking-tight flex items-center gap-2">
+          <SlidersHorizontal className="h-7 w-7 text-[#D71920]" />
           Catalog Products
         </h1>
-        <p className="text-sm text-zinc-400 mt-2">
+        <p className="text-sm text-zinc-500 mt-2">
           Explore top quality components and original accessories fitted for your motorcycle.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
-        <div className="space-y-6 lg:border-r lg:border-zinc-900 lg:pr-8">
+        <div className="space-y-6 lg:border-r lg:border-zinc-200 lg:pr-8">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">Filters</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-500">Filters</h2>
             {(categorySlug || brandSlug || sort !== 'newest') && (
               <button
                 onClick={handleReset}
-                className="text-[11px] text-amber-500 hover:text-amber-400 flex items-center gap-1 font-semibold transition-colors"
+                className="text-[11px] text-[#D71920] hover:text-[#BF141A] flex items-center gap-1 font-semibold transition-colors"
               >
                 <RotateCcw className="h-3 w-3" />
                 Reset
@@ -103,17 +107,17 @@ function ProductsContent() {
 
           {/* Categories filter */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase text-zinc-500">Categories</h3>
+            <h3 className="text-xs font-bold uppercase text-zinc-400">Categories</h3>
             {isLoadingCats ? (
-              <Loader2 className="h-4 w-4 animate-spin text-zinc-600" />
+              <Loader2 className="h-4 w-4 animate-spin text-[#D71920]" />
             ) : (
               <div className="flex flex-col gap-2">
                 <button
                   onClick={() => updateQuery({ category: '' })}
                   className={`text-left text-xs px-3 py-2 rounded-xl transition-all ${
                     !categorySlug
-                      ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold'
-                      : 'text-zinc-400 hover:bg-zinc-900 border border-transparent'
+                      ? 'bg-[#D71920]/10 text-[#D71920] border border-[#D71920]/20 font-bold'
+                      : 'text-zinc-600 hover:bg-zinc-100 border border-transparent'
                   }`}
                 >
                   All Categories
@@ -124,8 +128,8 @@ function ProductsContent() {
                     onClick={() => updateQuery({ category: cat.slug })}
                     className={`text-left text-xs px-3 py-2 rounded-xl transition-all ${
                       categorySlug === cat.slug
-                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold'
-                        : 'text-zinc-400 hover:bg-zinc-900 border border-transparent'
+                        ? 'bg-[#D71920]/10 text-[#D71920] border border-[#D71920]/20 font-bold'
+                        : 'text-zinc-600 hover:bg-zinc-100 border border-transparent'
                     }`}
                   >
                     {cat.name}
@@ -137,17 +141,17 @@ function ProductsContent() {
 
           {/* Brands filter */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase text-zinc-500">Brands</h3>
+            <h3 className="text-xs font-bold uppercase text-zinc-400">Brands</h3>
             {isLoadingBrands ? (
-              <Loader2 className="h-4 w-4 animate-spin text-zinc-600" />
+              <Loader2 className="h-4 w-4 animate-spin text-[#D71920]" />
             ) : (
               <div className="flex flex-col gap-2">
                 <button
                   onClick={() => updateQuery({ brand: '' })}
                   className={`text-left text-xs px-3 py-2 rounded-xl transition-all ${
                     !brandSlug
-                      ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold'
-                      : 'text-zinc-400 hover:bg-zinc-900 border border-transparent'
+                      ? 'bg-[#D71920]/10 text-[#D71920] border border-[#D71920]/20 font-bold'
+                      : 'text-zinc-600 hover:bg-zinc-100 border border-transparent'
                   }`}
                 >
                   All Brands
@@ -158,8 +162,8 @@ function ProductsContent() {
                     onClick={() => updateQuery({ brand: brand.slug })}
                     className={`text-left text-xs px-3 py-2 rounded-xl transition-all ${
                       brandSlug === brand.slug
-                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold'
-                        : 'text-zinc-400 hover:bg-zinc-900 border border-transparent'
+                        ? 'bg-[#D71920]/10 text-[#D71920] border border-[#D71920]/20 font-bold'
+                        : 'text-zinc-600 hover:bg-zinc-100 border border-transparent'
                     }`}
                   >
                     {brand.name}
@@ -173,18 +177,18 @@ function ProductsContent() {
         {/* Product Grid Area */}
         <div className="lg:col-span-3 space-y-6">
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-zinc-900/10 border border-zinc-900 p-4 rounded-2xl">
-            <div className="text-xs text-zinc-400">
-              Showing <span className="font-semibold text-white">{products.length}</span> of{' '}
-              <span className="font-semibold text-white">{meta.total}</span> products
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-zinc-200 p-4 rounded-2xl">
+            <div className="text-xs text-zinc-500">
+              Showing <span className="font-semibold text-zinc-950">{products.length}</span> of{' '}
+              <span className="font-semibold text-zinc-950">{meta.total}</span> products
             </div>
 
             <div className="flex items-center gap-2">
-              <ArrowUpDown className="h-3.5 w-3.5 text-zinc-500" />
+              <ArrowUpDown className="h-3.5 w-3.5 text-zinc-400" />
               <select
                 value={sort}
                 onChange={(e) => updateQuery({ sort: e.target.value })}
-                className="bg-zinc-950 border border-zinc-800 text-xs text-zinc-300 rounded-xl px-3 py-1.5 focus:outline-none focus:border-amber-500/40 cursor-pointer"
+                className="bg-white border border-zinc-200 text-xs text-zinc-700 rounded-xl px-3 py-1.5 focus:outline-none focus:border-[#D71920]/40 focus:ring-1 focus:ring-[#D71920]/40 cursor-pointer"
               >
                 <option value="newest">Newest Arrival</option>
                 <option value="price_asc">Price: Low to High</option>
@@ -202,17 +206,17 @@ function ProductsContent() {
               <button
                 disabled={page <= 1}
                 onClick={() => updateQuery({ page: page - 1 })}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-zinc-200 text-zinc-500 hover:text-zinc-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
-              <span className="text-xs font-semibold text-zinc-400">
+              <span className="text-xs font-semibold text-zinc-500">
                 Page {page} of {meta.totalPages}
               </span>
               <button
                 disabled={page >= meta.totalPages}
                 onClick={() => updateQuery({ page: page + 1 })}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-zinc-200 text-zinc-500 hover:text-zinc-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -226,14 +230,14 @@ function ProductsContent() {
 
 export default function ProductsPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-50">
+    <div className="flex min-h-screen flex-col bg-[#F8F9FA] text-zinc-900">
       <Navbar />
       <main className="flex-1 container mx-auto py-10 px-4">
         <div className="max-w-6xl mx-auto">
           <React.Suspense
             fallback={
               <div className="flex items-center justify-center py-36">
-                <Loader2 className="h-8 w-8 animate-spin text-amber-500" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#D71920]" />
               </div>
             }
           >

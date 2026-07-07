@@ -74,11 +74,11 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1" htmlFor="name">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1" htmlFor="name">
           Full Name
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <User className="h-4 w-4" />
           </span>
           <input
@@ -86,7 +86,7 @@ export default function RegisterForm() {
             type="text"
             placeholder="John Doe"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('name')}
           />
         </div>
@@ -94,11 +94,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1" htmlFor="email">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1" htmlFor="email">
           Email Address
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Mail className="h-4 w-4" />
           </span>
           <input
@@ -106,7 +106,7 @@ export default function RegisterForm() {
             type="email"
             placeholder="rider@example.com"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('email')}
           />
         </div>
@@ -114,11 +114,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1" htmlFor="phone">
-          Mobile Number <span className="text-zinc-500 text-xs">(Optional)</span>
+        <label className="block text-sm font-semibold text-zinc-700 mb-1" htmlFor="phone">
+          Mobile Number <span className="text-zinc-400 text-xs">(Optional)</span>
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Phone className="h-4 w-4" />
           </span>
           <input
@@ -126,7 +126,7 @@ export default function RegisterForm() {
             type="tel"
             placeholder="017XXXXXXXX"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('phone')}
           />
         </div>
@@ -134,11 +134,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1" htmlFor="password">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1" htmlFor="password">
           Password
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Lock className="h-4 w-4" />
           </span>
           <input
@@ -146,14 +146,14 @@ export default function RegisterForm() {
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-10 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-10 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('password')}
           />
           <button
             type="button"
             disabled={isLoading}
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-500 hover:text-zinc-400 focus:outline-none"
+            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 hover:text-zinc-600 focus:outline-none"
           >
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
@@ -164,11 +164,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1" htmlFor="confirmPassword">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1" htmlFor="confirmPassword">
           Confirm Password
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Lock className="h-4 w-4" />
           </span>
           <input
@@ -176,7 +176,7 @@ export default function RegisterForm() {
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('confirmPassword')}
           />
         </div>
@@ -190,7 +190,7 @@ export default function RegisterForm() {
         disabled={isLoading}
         className="w-full py-3 flex items-center justify-center gap-2 text-sm font-semibold mt-3"
       >
-        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-black" />}
+        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-white" />}
         Create Account
       </Button>
     </form>

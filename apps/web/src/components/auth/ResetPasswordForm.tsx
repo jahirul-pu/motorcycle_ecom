@@ -83,11 +83,11 @@ export default function ResetPasswordForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-6 space-y-4">
-        <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-amber-500/10 text-amber-500 mb-2">
+        <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-emerald-500/10 text-emerald-600 mb-2">
           <CheckCircle2 className="h-10 w-10" />
         </div>
-        <h3 className="text-xl font-bold text-white">Password Updated</h3>
-        <p className="text-sm text-zinc-400 max-w-sm mx-auto leading-relaxed">
+        <h3 className="text-xl font-bold text-zinc-900">Password Updated</h3>
+        <p className="text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed">
           Your new password has been applied. You can now use it to sign in to your rider account.
         </p>
         <div className="pt-4">
@@ -102,11 +102,11 @@ export default function ResetPasswordForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="password">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1.5" htmlFor="password">
           New Password
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Lock className="h-4 w-4" />
           </span>
           <input
@@ -114,14 +114,14 @@ export default function ResetPasswordForm() {
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-10 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-10 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('password')}
           />
           <button
             type="button"
             disabled={isLoading}
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-500 hover:text-zinc-400 focus:outline-none"
+            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 hover:text-zinc-600 focus:outline-none"
           >
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
@@ -132,11 +132,11 @@ export default function ResetPasswordForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="confirmPassword">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1.5" htmlFor="confirmPassword">
           Confirm Password
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Lock className="h-4 w-4" />
           </span>
           <input
@@ -144,7 +144,7 @@ export default function ResetPasswordForm() {
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('confirmPassword')}
           />
         </div>
@@ -156,9 +156,9 @@ export default function ResetPasswordForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 flex items-center justify-center gap-2 text-sm font-semibold mt-3"
+        className="w-full py-3 flex items-center justify-center gap-2 text-sm font-semibold mt-4"
       >
-        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-black" />}
+        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-white" />}
         Reset Password
       </Button>
     </form>

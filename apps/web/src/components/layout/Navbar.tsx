@@ -34,29 +34,29 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+    <header className="border-b border-zinc-200 bg-white/80 backdrop-blur sticky top-0 z-50">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Bike className="h-8 w-8 text-amber-500" />
-          <span className="text-xl font-bold tracking-tight text-white">
-            MOTO<span className="text-amber-500">HUB</span>
+          <Bike className="h-8 w-8 text-[#D71920]" />
+          <span className="text-xl font-extrabold tracking-tight text-zinc-900">
+            MOTO<span className="text-[#D71920]">HUB</span>
           </span>
         </Link>
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-          <span className="hover:text-white transition-colors cursor-pointer">Parts</span>
-          <span className="hover:text-white transition-colors cursor-pointer">Gear</span>
-          <span className="hover:text-white transition-colors cursor-pointer">Accessories</span>
-          <span className="hover:text-white transition-colors cursor-pointer">Compatibility</span>
+        <nav className="hidden md:flex gap-6 text-sm font-semibold text-zinc-500">
+          <Link href="/products" className="hover:text-zinc-950 transition-colors cursor-pointer">Parts</Link>
+          <span className="hover:text-zinc-950 transition-colors cursor-pointer">Gear</span>
+          <span className="hover:text-zinc-950 transition-colors cursor-pointer">Accessories</span>
+          <span className="hover:text-zinc-950 transition-colors cursor-pointer">Compatibility</span>
         </nav>
-
+ 
         <div className="flex items-center gap-4">
           {mounted && isAuthenticated && user ? (
             <div className="flex items-center gap-4">
               <Link
                 href="/account/profile"
-                className="text-sm text-zinc-300 hover:text-white transition-colors hidden sm:inline-flex items-center gap-1.5"
+                className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors hidden sm:inline-flex items-center gap-1.5 font-semibold"
               >
-                <UserIcon className="h-4 w-4 text-amber-500" />
+                <UserIcon className="h-4 w-4 text-[#D71920]" />
                 Hi, {user.name}
               </Link>
               <Button

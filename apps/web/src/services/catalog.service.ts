@@ -24,7 +24,10 @@ export const catalogService = {
     categorySlug?: string;
     brandSlug?: string;
     sort?: string;
-  }): Promise<{ items: Product[]; meta: { total: number; page: number; limit: number; totalPages: number } }> => {
+  }): Promise<{
+    items: Product[];
+    meta: { total: number; page: number; limit: number; totalPages: number };
+  }> => {
     const query = new URLSearchParams();
     if (params) {
       if (params.page) query.append('page', String(params.page));
@@ -45,4 +48,3 @@ export const catalogService = {
     return api.get(`/products/${id}/compatibility`);
   },
 };
-

@@ -11,11 +11,36 @@ export class ProductsController {
 
   @Get()
   @ApiOperation({ summary: 'Get active products list with pagination, filters, and sorting' })
-  @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (default: 1)' })
-  @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page (default: 10)' })
-  @ApiQuery({ name: 'categorySlug', required: false, type: String, description: 'Filter by category slug' })
-  @ApiQuery({ name: 'brandSlug', required: false, type: String, description: 'Filter by brand slug' })
-  @ApiQuery({ name: 'sort', required: false, type: String, description: 'Sort criteria (newest, price_asc, price_desc)' })
+  @ApiQuery({
+    name: 'page',
+    required: false,
+    type: Number,
+    description: 'Page number (default: 1)',
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    type: Number,
+    description: 'Items per page (default: 10)',
+  })
+  @ApiQuery({
+    name: 'categorySlug',
+    required: false,
+    type: String,
+    description: 'Filter by category slug',
+  })
+  @ApiQuery({
+    name: 'brandSlug',
+    required: false,
+    type: String,
+    description: 'Filter by brand slug',
+  })
+  @ApiQuery({
+    name: 'sort',
+    required: false,
+    type: String,
+    description: 'Sort criteria (newest, price_asc, price_desc)',
+  })
   @ApiResponse({ status: 200, description: 'Products list and meta metadata.' })
   findAll(
     @Query('page') page?: number,

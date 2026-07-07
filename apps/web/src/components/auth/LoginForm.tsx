@@ -59,11 +59,11 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="email">
+        <label className="block text-sm font-semibold text-zinc-700 mb-1.5" htmlFor="email">
           Email Address
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Mail className="h-4 w-4" />
           </span>
           <input
@@ -71,7 +71,7 @@ export default function LoginForm() {
             type="email"
             placeholder="rider@example.com"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('email')}
           />
         </div>
@@ -80,18 +80,18 @@ export default function LoginForm() {
 
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <label className="block text-sm font-medium text-zinc-300" htmlFor="password">
+          <label className="block text-sm font-semibold text-zinc-700" htmlFor="password">
             Password
           </label>
           <a
             href="/forgot-password"
-            className="text-xs text-amber-500 hover:text-amber-400 transition-colors"
+            className="text-xs font-semibold text-[#D71920] hover:text-[#BF141A] transition-colors"
           >
             Forgot Password?
           </a>
         </div>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-400 pointer-events-none">
             <Lock className="h-4 w-4" />
           </span>
           <input
@@ -99,14 +99,14 @@ export default function LoginForm() {
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
             disabled={isLoading}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-10 pr-10 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all disabled:opacity-50"
+            className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-10 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#D71920] focus:border-transparent transition-all disabled:opacity-50"
             {...register('password')}
           />
           <button
             type="button"
             disabled={isLoading}
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-500 hover:text-zinc-400 focus:outline-none"
+            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 hover:text-zinc-600 focus:outline-none"
           >
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
@@ -121,10 +121,10 @@ export default function LoginForm() {
           <input
             type="checkbox"
             disabled={isLoading}
-            className="h-4 w-4 rounded bg-zinc-900 border-zinc-800 text-amber-500 focus:ring-0 focus:ring-offset-0 cursor-pointer"
+            className="h-4 w-4 rounded border-zinc-300 text-[#D71920] focus:ring-[#D71920] cursor-pointer"
             {...register('rememberMe')}
           />
-          <span className="text-xs text-zinc-400">Remember me</span>
+          <span className="text-xs text-zinc-600 font-medium">Remember me</span>
         </label>
       </div>
 
@@ -133,7 +133,7 @@ export default function LoginForm() {
         disabled={isLoading}
         className="w-full py-3 flex items-center justify-center gap-2 text-sm font-semibold mt-2"
       >
-        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-black" />}
+        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-white" />}
         Sign In
       </Button>
     </form>

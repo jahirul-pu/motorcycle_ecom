@@ -242,7 +242,7 @@ export interface Product {
   createdAt: string;
   updatedAt: string;
   deletedAt: string | null;
-  
+
   brand?: Brand;
   category?: Category;
   images?: ProductImage[];
@@ -252,4 +252,3 @@ export interface Product {
   specifications?: ProductSpecification[];
   compatibility?: ProductCompatibility[];
 }
-

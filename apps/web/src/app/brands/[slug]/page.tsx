@@ -25,61 +25,61 @@ export default function BrandDetailPage({ params }: BrandDetailPageProps) {
   });
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-50">
+    <div className="flex min-h-screen flex-col bg-[#F8F9FA] text-zinc-900">
       <Navbar />
 
       <main className="flex-1 container mx-auto py-8 px-4">
         <div className="max-w-6xl mx-auto space-y-6">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-1.5 text-xs text-zinc-500 font-medium">
-            <Link href="/" className="flex items-center gap-1 hover:text-white transition-colors">
+          <nav className="flex items-center gap-1.5 text-xs text-zinc-500 font-semibold">
+            <Link href="/" className="flex items-center gap-1 hover:text-zinc-850 transition-colors">
               <Home className="h-3.5 w-3.5" />
             </Link>
-            <ChevronRight className="h-3 w-3 text-zinc-700" />
-            <Link href="/brands" className="hover:text-white transition-colors">
+            <ChevronRight className="h-3 w-3 text-zinc-300" />
+            <Link href="/brands" className="hover:text-zinc-850 transition-colors">
               Brands
             </Link>
             {brand && (
               <>
-                <ChevronRight className="h-3 w-3 text-zinc-700" />
-                <span className="text-amber-500 font-semibold">{brand.name}</span>
+                <ChevronRight className="h-3 w-3 text-zinc-300" />
+                <span className="text-[#D71920] font-semibold">{brand.name}</span>
               </>
             )}
           </nav>
 
           {isLoading ? (
             <div className="flex items-center justify-center py-24">
-              <Loader2 className="h-8 w-8 animate-spin text-amber-500" />
+              <Loader2 className="h-8 w-8 animate-spin text-[#D71920]" />
             </div>
           ) : error || !brand ? (
-            <div className="text-center py-16 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
+            <div className="text-center py-16 border border-dashed border-zinc-200 rounded-2xl bg-white">
               <p className="text-sm text-red-500">
                 Failed to load brand details. It may not exist.
               </p>
               <Link
                 href="/brands"
-                className="inline-block mt-4 text-xs text-amber-500 hover:underline"
+                className="inline-block mt-4 text-xs text-[#D71920] hover:underline"
               >
                 Back to Brands
               </Link>
             </div>
           ) : (
             <div className="space-y-8">
-              <div className="bg-zinc-900/30 border border-zinc-800 rounded-2xl p-6 md:p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/2 rounded-full blur-3xl pointer-events-none" />
+              <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#D71920]/2 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-amber-500">
+                    <div className="flex items-center gap-2 text-emerald-600">
                       <ShieldCheck className="h-6 w-6" />
-                      <span className="text-xs font-bold uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                      <span className="text-xs font-bold uppercase tracking-wider bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                         Official Partner
                       </span>
                     </div>
-                    <h1 className="text-3xl font-extrabold text-white tracking-tight">
+                    <h1 className="text-3xl font-extrabold text-zinc-900 tracking-tight">
                       {brand.name}
                     </h1>
-                    <p className="text-sm text-zinc-400 max-w-2xl leading-relaxed">
+                    <p className="text-sm text-zinc-500 max-w-2xl leading-relaxed">
                       {brand.description ||
                         `Browse premium catalog configurations manufactured by ${brand.name}.`}
                     </p>
@@ -91,7 +91,7 @@ export default function BrandDetailPage({ params }: BrandDetailPageProps) {
                         href={brand.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-zinc-950 border border-zinc-800 hover:border-amber-500/30 hover:text-amber-500 text-xs font-bold text-zinc-300 px-4 py-2.5 rounded-xl transition-all"
+                        className="inline-flex items-center gap-2 bg-white border border-zinc-200 hover:border-[#D71920]/30 hover:text-[#D71920] text-xs font-bold text-zinc-700 px-4 py-2.5 rounded-xl transition-all"
                       >
                         <Globe className="h-4 w-4" />
                         Manufacturer Website
@@ -125,12 +125,11 @@ function BrandProductsSection({ slug, brandName }: BrandProductsSectionProps) {
   const products = productsData?.items || [];
 
   return (
-    <div className="space-y-4 pt-6 border-t border-zinc-900">
-      <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
+    <div className="space-y-4 pt-6 border-t border-zinc-100">
+      <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-500">
         Products under {brandName}
       </h2>
       <ProductGrid products={products} isLoading={isLoading} limit={6} />
     </div>
   );
 }
-
