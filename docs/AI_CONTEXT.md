@@ -15,6 +15,7 @@ It applies to
 - Roo Code
 - Any future AI development assistant
 
+Before starting any work, read planning/PROGRESS.md. If it exists, continue from the current milestone. If it doesn't exist, read planning/CHECKLIST.md and start with the first incomplete task. After completing work, update both files before stopping. Never automatically move to the next phase unless explicitly instructed.
 ---
 
 # Mission
