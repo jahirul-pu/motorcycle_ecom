@@ -48,7 +48,10 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
         <div className="max-w-6xl mx-auto space-y-6">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-1.5 text-xs text-zinc-500 font-semibold">
-            <Link href="/" className="flex items-center gap-1 hover:text-zinc-800 transition-colors">
+            <Link
+              href="/"
+              className="flex items-center gap-1 hover:text-zinc-800 transition-colors"
+            >
               <Home className="h-3.5 w-3.5" />
             </Link>
             <ChevronRight className="h-3 w-3 text-zinc-300" />

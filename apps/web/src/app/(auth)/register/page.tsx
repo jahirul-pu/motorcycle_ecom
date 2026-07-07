@@ -31,7 +31,7 @@ export default function RegisterPage() {
           </Link>
         </p>
       </div>
- 
+
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
         <div className="bg-white border border-zinc-200 py-8 px-6 shadow-md rounded-2xl sm:px-10">
           <RegisterForm />

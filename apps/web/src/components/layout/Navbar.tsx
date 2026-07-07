@@ -43,12 +43,16 @@ export default function Navbar() {
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-semibold text-zinc-500">
-          <Link href="/products" className="hover:text-zinc-950 transition-colors cursor-pointer">Parts</Link>
+          <Link href="/products" className="hover:text-zinc-950 transition-colors cursor-pointer">
+            Parts
+          </Link>
           <span className="hover:text-zinc-950 transition-colors cursor-pointer">Gear</span>
           <span className="hover:text-zinc-950 transition-colors cursor-pointer">Accessories</span>
-          <span className="hover:text-zinc-950 transition-colors cursor-pointer">Compatibility</span>
+          <span className="hover:text-zinc-950 transition-colors cursor-pointer">
+            Compatibility
+          </span>
         </nav>
- 
+
         <div className="flex items-center gap-4">
           {mounted && isAuthenticated && user ? (
             <div className="flex items-center gap-4">

@@ -21,7 +21,7 @@ export default function ResetPasswordPage() {
         </Link>
         <h2 className="text-3xl font-extrabold text-zinc-900 tracking-tight">Reset Password</h2>
       </div>
- 
+
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
         <div className="bg-white border border-zinc-200 py-8 px-6 shadow-md rounded-2xl sm:px-10">
           <React.Suspense

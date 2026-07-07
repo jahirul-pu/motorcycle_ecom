@@ -132,7 +132,10 @@ export default function ResetPasswordForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-zinc-700 mb-1.5" htmlFor="confirmPassword">
+        <label
+          className="block text-sm font-semibold text-zinc-700 mb-1.5"
+          htmlFor="confirmPassword"
+        >
           Confirm Password
         </label>
         <div className="relative">
