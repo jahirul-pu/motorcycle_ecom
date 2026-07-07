@@ -24,11 +24,11 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 bg-white text-sm text-zinc-600">
-              <Shield className="h-4 w-4 text-[#D71920]" />
+              <Shield className="h-4 w-4 text-primary" />
               100% Genuine Products
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 bg-white text-sm text-zinc-600">
-              <Settings className="h-4 w-4 text-[#D71920]" />
+              <Settings className="h-4 w-4 text-primary" />
               Delivery starting at {formatCurrency(60)}
             </div>
           </div>

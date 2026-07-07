@@ -30,21 +30,35 @@ import { ProductsModule } from './modules/products/products.module';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         const redisUrl = configService.get<string>('REDIS_URL');
-        return {
-          store: await redisStore({
+        try {
+          const store = await redisStore({
             url: redisUrl || 'redis://localhost:6379',
             ttl: 60000, // 60 seconds in milliseconds
             socket: {
+              connectTimeout: 3000,
               reconnectStrategy: (retries) => {
                 // limit retry attempts in development if Redis isn't running
                 if (retries > 3) {
-                  return new Error('Redis connection failed');
+                  return false; // Stop retrying instead of throwing
                 }
                 return Math.min(retries * 100, 1000);
               },
             },
-          }),
-        };
+          });
+
+          // Prevent process crashes on connection error events
+          const client = (store as any).client;
+          if (client) {
+            client.on('error', (err: any) => {
+              console.warn('Redis Cache connection error:', err.message);
+            });
+          }
+
+          return { store };
+        } catch (error: any) {
+          console.warn('Redis is not running. Falling back to in-memory cache:', error.message);
+          return {}; // Falls back to default in-memory cache
+        }
       },
     }),
     HealthModule,

@@ -13,12 +13,12 @@ export default function BrandCard({ brand }: BrandCardProps) {
   return (
     <Link
       href={`/brands/${brand.slug}`}
-      className="group relative block bg-white border border-zinc-200 hover:border-[#D71920]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-200/50 select-none"
+      className="group relative block bg-white border border-zinc-200 hover:border-primary/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-200/50 select-none"
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[#D71920]/2 rounded-full blur-2xl pointer-events-none group-hover:bg-[#D71920]/5 transition-all duration-300" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/2 rounded-full blur-2xl pointer-events-none group-hover:bg-primary/5 transition-all duration-300" />
 
       <div className="flex items-start justify-between gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-500 group-hover:text-[#D71920] group-hover:border-[#D71920]/20 transition-all duration-300">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-500 group-hover:text-primary group-hover:border-primary/20 transition-all duration-300">
           <ShieldAlert className="h-5 w-5" />
         </div>
         {brand.website && (
@@ -27,7 +27,7 @@ export default function BrandCard({ brand }: BrandCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1 text-[10px] font-semibold text-zinc-400 hover:text-[#D71920] transition-colors"
+            className="flex items-center gap-1 text-[10px] font-semibold text-zinc-400 hover:text-primary transition-colors"
           >
             Visit Website
             <ExternalLink className="h-3 w-3" />
@@ -36,9 +36,9 @@ export default function BrandCard({ brand }: BrandCardProps) {
       </div>
 
       <div className="mt-4">
-        <h3 className="text-base font-bold text-zinc-900 group-hover:text-[#D71920] transition-colors flex items-center justify-between">
+        <h3 className="text-base font-bold text-zinc-900 group-hover:text-primary transition-colors flex items-center justify-between">
           {brand.name}
-          <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-[#D71920] group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="h-4 w-4 text-zinc-400 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
         </h3>
         <p className="text-xs text-zinc-500 mt-1.5 leading-relaxed line-clamp-2">
           {brand.description ||

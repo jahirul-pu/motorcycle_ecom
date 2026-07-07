@@ -37,9 +37,9 @@ export default function Navbar() {
     <header className="border-b border-zinc-200 bg-white/80 backdrop-blur sticky top-0 z-50">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Bike className="h-8 w-8 text-[#D71920]" />
+          <Bike className="h-8 w-8 text-primary" />
           <span className="text-xl font-extrabold tracking-tight text-zinc-900">
-            MOTO<span className="text-[#D71920]">HUB</span>
+            MOTO<span className="text-primary">HUB</span>
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-semibold text-zinc-500">
@@ -52,7 +52,7 @@ export default function Navbar() {
             Compatibility
           </span>
         </nav>
-
+ 
         <div className="flex items-center gap-4">
           {mounted && isAuthenticated && user ? (
             <div className="flex items-center gap-4">
@@ -60,7 +60,7 @@ export default function Navbar() {
                 href="/account/profile"
                 className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors hidden sm:inline-flex items-center gap-1.5 font-semibold"
               >
-                <UserIcon className="h-4 w-4 text-[#D71920]" />
+                <UserIcon className="h-4 w-4 text-primary" />
                 Hi, {user.name}
               </Link>
               <Button
