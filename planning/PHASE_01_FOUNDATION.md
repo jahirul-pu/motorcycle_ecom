@@ -121,7 +121,7 @@ Workspace Configuration
 
 Status
 
-⬜
+☑
 
 ---
 

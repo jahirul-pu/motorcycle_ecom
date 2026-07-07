@@ -22,6 +22,13 @@
         "prisma:deploy": "pnpm --filter api prisma migrate deploy",
         "prisma:reset": "pnpm --filter api prisma migrate reset",
         "prisma:seed": "pnpm --filter api prisma db seed",
-        "prisma:studio": "pnpm --filter api prisma studio"
+        "prisma:studio": "pnpm --filter api prisma studio",
+        "setup:env": "node scripts/setup-env.js",
+        "postinstall": "pnpm setup:env"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5",
+        "prettier": "^3.2.5",
+        "eslint": "^8.57.0"
     }
 }

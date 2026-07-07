@@ -1,11 +1,6 @@
-# pnpm-workspace.yaml
-
 packages:
-
-  - "apps/*"
-
-  - "packages/*"
-
-  - "tools/*"
-
-  - "scripts/*"
+  - 'apps/*'
+  - 'packages/*'
+allowBuilds:
+  '@nestjs/core': true
+  sharp: true

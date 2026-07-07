@@ -1,5 +1,56 @@
 # MotoHub_AI_Operating_System.md
+# Required Reading Order
 
+Before starting any implementation, read these files in order.
+
+Core Context
+
+1. PROJECT_CONTEXT.md
+2. AI_CONTEXT.md
+3. planning/PROGRESS.md
+4. planning/CHECKLIST.md
+5. Current planning phase document
+
+Then read additional documentation only when required.
+
+If implementing UI
+
+→ design/DESIGN.md
+→ design/COMPONENTS.md
+
+If implementing APIs
+
+→ architecture/API.md
+
+If implementing database
+
+→ architecture/DATABASE.md
+
+If implementing frontend
+
+→ development/FRONTEND_IMPLEMENTATION.md
+
+If implementing backend
+
+→ development/BACKEND_IMPLEMENTATION.md
+
+If implementing authentication
+
+→ architecture/SECURITY.md
+
+If implementing product catalog
+
+→ architecture/CATALOG_ARCHITECTURE.md
+
+If implementing compatibility
+
+→ architecture/COMPATIBILITY_ARCHITECTURE.md
+
+If implementing attributes
+
+→ architecture/ATTRIBUTE_ARCHITECTURE.md
+
+Always consult the relevant documentation before writing code.
 Version: 1.0
 
 This document is the permanent operating system for every AI coding assistant that works on MotoHub.

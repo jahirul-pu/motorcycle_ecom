@@ -20,10 +20,10 @@ Version: 1.0
 
 ## Workspace
 
-- [ ] pnpm Workspace
-- [ ] Root package.json
-- [ ] Shared tsconfig
-- [ ] Environment Loader
+- [x] pnpm Workspace
+- [x] Root package.json
+- [x] Shared tsconfig
+- [x] Environment Loader
 
 ---
 
@@ -194,7 +194,7 @@ Version: 1.0
 Phase 1
 
 ```
-6%
+12%
 ```
 
 Phase 2
@@ -252,13 +252,13 @@ Phase 1
 Current Milestone
 
 ```
-Workspace Configuration
+Next.js Application
 ```
 
 Current Task
 
 ```
-Configure pnpm workspace, create root package.json, and setup shared configurations.
+Create apps/web Next.js app, install packages, and set up base configurations.
 ```
 
 Status
@@ -280,7 +280,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-1%
+2%
 ```
 
 Version

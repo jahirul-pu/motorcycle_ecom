@@ -14,13 +14,13 @@ Phase 1 — Foundation
 
 # Current Milestone
 
-Workspace Configuration
+Next.js Application
 
 ---
 
 # Current Task
 
-Configure pnpm workspace, create root package.json, and setup shared configurations.
+Create apps/web Next.js app, install packages, and set up base configurations.
 
 ---
 
@@ -37,6 +37,10 @@ Not Started
 - Create directory structure (`apps/`, `packages/`, `scripts/`, `infrastructure/`, `.github/`)
 - Create proprietary LICENSE file
 - Verify/configure `.gitignore` and `README.md`
+- Configure `pnpm-workspace.yaml` and initialize pnpm monorepo workspace
+- Create root `tsconfig.base.json` shared TypeScript configuration
+- Create environment copying automation script (`scripts/setup-env.js`) and integrate as a `postinstall` script
+- Configure package descriptors (`package.json`) and `tsconfig.json` configurations for all 7 workspace apps and packages
 
 ---
 
@@ -48,12 +52,12 @@ None
 
 # Next Tasks
 
-1. Configure pnpm workspace
-2. Create root package.json
-3. Configure workspace packages
-4. Configure shared tsconfig
-5. Configure environment loading
-6. Verify workspace resolution
+1. Create apps/web Next.js app
+2. Install Next.js and TypeScript dependencies
+3. Configure App Router and routes
+4. Configure Tailwind CSS and shadcn/ui styles
+5. Configure fonts, aliases, and metadata layout
+6. Verify development startup and production build for apps/web
 
 ---
 
@@ -91,7 +95,7 @@ develop
 ```
 Planning          ████████████████████ 100%
 
-Foundation        █░░░░░░░░░░░░░░░░░░░   6%
+Foundation        ██░░░░░░░░░░░░░░░░░░  12%
 
 Authentication    ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -111,20 +115,20 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-1%
+2%
 ```
 
 ---
 
 # Session Notes
 
-- Configured local git settings and pushed develop branch.
-- Created directory placeholders for apps, packages, scripts, infrastructure, and .github.
-- Created proprietary License file.
-- Cleaned up package.json packageManager validation warning.
+- Configured workspace settings (`pnpm-workspace.yaml`) and initialized 7 apps and packages.
+- Created root `tsconfig.base.json` and package-level TS configurations extending it.
+- Created environment loading utility (`scripts/setup-env.js`) and integrated it as `postinstall` hook in root `package.json`.
+- Handled pnpm build permissions (`pnpm approve-builds`) for NestJS and Sharp.
 
 ---
 
 # Next Session Goal
 
-Complete Phase 1, Milestone 2 — Workspace Configuration.
+Complete Phase 1, Milestone 3 — Next.js Application.
