@@ -34,7 +34,7 @@ Version: 1.0
 - [x] shadcn/ui
 - [x] Theme
 - [x] Layout
-- [ ] Providers
+- [x] Providers
 
 ---
 
@@ -61,7 +61,7 @@ Version: 1.0
 
 - [x] Docker
 - [x] Redis
-- [ ] Health Checks
+- [x] Health Checks
 
 ---
 
@@ -70,7 +70,7 @@ Version: 1.0
 - [x] ESLint
 - [x] Prettier
 - [x] Husky
-- [ ] lint-staged
+- [x] lint-staged
 
 ---
 
@@ -203,7 +203,7 @@ Version: 1.0
 Phase 1
 
 ```
-63%
+100%
 ```
 
 Phase 2
@@ -255,19 +255,19 @@ Phase 8
 Current Phase
 
 ```
-Phase 1
+Phase 2
 ```
 
 Current Milestone
 
 ```
-Authentication Scaffold
+Register / Login / Logout UI & Integration
 ```
 
 Current Task
 
 ```
-Implement NestJS Authentication Scaffold (User module, Auth module, JWT Infrastructure, Password Hash Service, Refresh Token Service, NO UI).
+Implement registration, login, and logout customer forms, session management inside client state, and protected route handlers on the frontend.
 ```
 
 Status
@@ -289,7 +289,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-10%
+15%
 ```
 
 Version
