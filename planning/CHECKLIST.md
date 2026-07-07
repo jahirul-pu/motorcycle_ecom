@@ -255,19 +255,19 @@ Phase 8
 Current Phase
 
 ```
-Phase 3
+Phase 4
 ```
 
 Current Milestone
 
 ```
-Product Module
+Search API
 ```
 
 Current Task
 
 ```
-Define Product schema models, implement product details endpoints and frontend pages with loading skeletons.
+Implement search endpoints supporting keyword index, query matches, and fuzzy suggestions.
 ```
 
 Status

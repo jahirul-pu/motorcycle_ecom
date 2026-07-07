@@ -52,7 +52,7 @@ export default function Navbar() {
             Compatibility
           </span>
         </nav>
- 
+
         <div className="flex items-center gap-4">
           {mounted && isAuthenticated && user ? (
             <div className="flex items-center gap-4">

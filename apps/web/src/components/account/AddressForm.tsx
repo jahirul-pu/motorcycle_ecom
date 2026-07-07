@@ -79,16 +79,16 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-zinc-100">
-      <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-        <h3 className="text-lg font-bold text-white">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-zinc-800">
+      <div className="flex items-center justify-between border-b border-zinc-200 pb-3 mb-4">
+        <h3 className="text-lg font-bold text-zinc-900">
           {initialData ? 'Edit Address' : 'Add New Address'}
         </h3>
         <button
           type="button"
           onClick={onCancel}
           disabled={isLoading}
-          className="text-zinc-400 hover:text-white transition-colors"
+          className="text-zinc-400 hover:text-zinc-600 transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
@@ -96,11 +96,11 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="recipientName">
+          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="recipientName">
             Recipient Name
           </label>
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-500 pointer-events-none">
+            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-400 pointer-events-none">
               <User className="h-4 w-4" />
             </span>
             <input
@@ -108,7 +108,7 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
               type="text"
               placeholder="John Doe"
               disabled={isLoading}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+              className="w-full bg-white border border-zinc-200 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
               {...register('recipientName')}
             />
           </div>
@@ -118,11 +118,11 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="phone">
+          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="phone">
             Contact Number
           </label>
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-500 pointer-events-none">
+            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-400 pointer-events-none">
               <Phone className="h-4 w-4" />
             </span>
             <input
@@ -130,7 +130,7 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
               type="tel"
               placeholder="017XXXXXXXX"
               disabled={isLoading}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+              className="w-full bg-white border border-zinc-200 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
               {...register('phone')}
             />
           </div>
@@ -139,11 +139,11 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="addressLine1">
+        <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="addressLine1">
           Address Line 1
         </label>
         <div className="relative">
-          <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-500 pointer-events-none">
+          <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-zinc-400 pointer-events-none">
             <MapPin className="h-4 w-4" />
           </span>
           <input
@@ -151,7 +151,7 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
             type="text"
             placeholder="House/Holding #, Road/Lane Name"
             disabled={isLoading}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full bg-white border border-zinc-200 rounded-lg pl-9 pr-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
             {...register('addressLine1')}
           />
         </div>
@@ -161,22 +161,22 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="addressLine2">
-          Address Line 2 <span className="text-zinc-600 text-[10px]">(Optional)</span>
+        <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="addressLine2">
+          Address Line 2 <span className="text-zinc-400 text-[10px] font-normal">(Optional)</span>
         </label>
         <input
           id="addressLine2"
           type="text"
           placeholder="Flat, Apartment, Suite, Floor Details"
           disabled={isLoading}
-          className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+          className="w-full bg-white border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
           {...register('addressLine2')}
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="area">
+          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="area">
             Area / Thana
           </label>
           <input
@@ -184,14 +184,14 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
             type="text"
             placeholder="Mirpur / Banani"
             disabled={isLoading}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full bg-white border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
             {...register('area')}
           />
           {errors.area && <p className="text-xs text-red-500 mt-1">{errors.area.message}</p>}
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="city">
+          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="city">
             City
           </label>
           <input
@@ -199,22 +199,22 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
             type="text"
             placeholder="Dhaka / Chattogram"
             disabled={isLoading}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full bg-white border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
             {...register('city')}
           />
           {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city.message}</p>}
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="postalCode">
-            Postal Code <span className="text-zinc-600 text-[10px]">(Optional)</span>
+          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="postalCode">
+            Postal Code <span className="text-zinc-400 text-[10px] font-normal">(Optional)</span>
           </label>
           <input
             id="postalCode"
             type="text"
             placeholder="1216"
             disabled={isLoading}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full bg-white border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all"
             {...register('postalCode')}
           />
         </div>
@@ -225,14 +225,14 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
           <input
             type="checkbox"
             disabled={isLoading}
-            className="h-4 w-4 rounded bg-zinc-950 border-zinc-800 text-amber-500 focus:ring-0 focus:ring-offset-0 cursor-pointer"
+            className="h-4 w-4 rounded bg-white border-zinc-200 text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer"
             {...register('isDefault')}
           />
-          <span className="text-xs text-zinc-400">Set as default shipping address</span>
+          <span className="text-xs text-zinc-500">Set as default shipping address</span>
         </label>
       </div>
 
-      <div className="flex justify-end gap-3 pt-3 border-t border-zinc-800 mt-4">
+      <div className="flex justify-end gap-3 pt-3 border-t border-zinc-200 mt-4">
         <Button
           type="button"
           variant="secondary"
@@ -248,9 +248,9 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
           className="flex items-center gap-1.5 px-5 py-2 text-xs font-semibold"
         >
           {isLoading ? (
-            <Loader2 className="h-3.5 w-3.5 animate-spin text-black" />
+            <Loader2 className="h-3.5 w-3.5 animate-spin text-white" />
           ) : (
-            <Save className="h-3.5 w-3.5 text-black" />
+            <Save className="h-3.5 w-3.5 text-white" />
           )}
           Save Address
         </Button>
