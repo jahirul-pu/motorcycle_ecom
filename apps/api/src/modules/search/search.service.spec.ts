@@ -29,7 +29,9 @@ describe('SearchService', () => {
         count: jest.fn().mockResolvedValue(1),
       },
       category: {
-        findMany: jest.fn().mockResolvedValue([{ id: 'cat-1', name: 'Engine Oil', slug: 'engine-oil' }]),
+        findMany: jest
+          .fn()
+          .mockResolvedValue([{ id: 'cat-1', name: 'Engine Oil', slug: 'engine-oil' }]),
       },
       brand: {
         findMany: jest.fn().mockResolvedValue([{ id: 'brand-1', name: 'Motul', slug: 'motul' }]),
@@ -37,10 +39,7 @@ describe('SearchService', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        SearchService,
-        { provide: PrismaService, useValue: mockPrismaService },
-      ],
+      providers: [SearchService, { provide: PrismaService, useValue: mockPrismaService }],
     }).compile();
 
     service = module.get<SearchService>(SearchService);
@@ -81,7 +80,7 @@ describe('SearchService', () => {
           take: 5,
           skip: 0,
           orderBy: { price: { regularPrice: 'asc' } },
-        })
+        }),
       );
       expect(result.items.length).toBe(1);
     });

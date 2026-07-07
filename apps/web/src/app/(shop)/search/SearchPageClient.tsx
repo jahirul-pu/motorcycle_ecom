@@ -35,11 +35,17 @@ function SearchResultsContent() {
 
   // Parse categories/brands to arrays for the sidebar props
   const selectedCategories = React.useMemo(() => {
-    return categoriesStr.split(',').map((s) => s.trim()).filter(Boolean);
+    return categoriesStr
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
   }, [categoriesStr]);
 
   const selectedBrands = React.useMemo(() => {
-    return brandsStr.split(',').map((s) => s.trim()).filter(Boolean);
+    return brandsStr
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
   }, [brandsStr]);
 
   // Parse attributes string back to structured record for sidebar
@@ -212,14 +218,14 @@ function SearchResultsContent() {
   const jsonLdSchema = {
     '@context': 'https://schema.org',
     '@type': 'SearchResultsPage',
-    'mainEntity': {
+    mainEntity: {
       '@type': 'ItemList',
-      'numberOfItems': meta.total,
-      'itemListElement': products.map((prod, index) => ({
+      numberOfItems: meta.total,
+      itemListElement: products.map((prod, index) => ({
         '@type': 'ListItem',
-        'position': index + 1 + (page - 1) * limit,
-        'url': `http://localhost:3000/products/${prod.slug}`,
-        'name': prod.name,
+        position: index + 1 + (page - 1) * limit,
+        url: `http://localhost:3000/products/${prod.slug}`,
+        name: prod.name,
       })),
     },
   };
@@ -253,7 +259,9 @@ function SearchResultsContent() {
         {/* Active Filter Badges */}
         {hasActiveFilters && (
           <div className="flex flex-wrap items-center gap-1.5 mb-6">
-            <span className="text-[10px] uppercase font-bold text-zinc-400 mr-1">Active Filters:</span>
+            <span className="text-[10px] uppercase font-bold text-zinc-400 mr-1">
+              Active Filters:
+            </span>
             {queryText && (
               <span className="inline-flex items-center gap-1 bg-white border border-zinc-200 text-[10px] font-semibold text-zinc-700 px-2 py-0.5 rounded-full shadow-sm">
                 Keyword: {queryText}
@@ -311,7 +319,7 @@ function SearchResultsContent() {
                     <X className="h-3 w-3 text-zinc-400 hover:text-zinc-600" />
                   </button>
                 </span>
-              ))
+              )),
             )}
           </div>
         )}
@@ -366,7 +374,8 @@ function SearchResultsContent() {
                 <div className="space-y-1.5">
                   <h3 className="text-base font-bold text-zinc-900">No Matching Products Found</h3>
                   <p className="text-xs text-zinc-500 max-w-sm mx-auto">
-                    Try broadening your search term keyword, adjusting price range boundaries, or clearing checklist filters.
+                    Try broadening your search term keyword, adjusting price range boundaries, or
+                    clearing checklist filters.
                   </p>
                 </div>
                 {hasActiveFilters && (

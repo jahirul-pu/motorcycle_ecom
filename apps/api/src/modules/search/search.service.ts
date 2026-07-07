@@ -49,7 +49,10 @@ export class SearchService {
 
     // Category filters
     if (categories && categories.trim().length > 0) {
-      const categorySlugs = categories.split(',').map((s) => s.trim()).filter(Boolean);
+      const categorySlugs = categories
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
       if (categorySlugs.length > 0) {
         where.category = {
           slug: { in: categorySlugs },
@@ -59,7 +62,10 @@ export class SearchService {
 
     // Brand filters
     if (brands && brands.trim().length > 0) {
-      const brandSlugs = brands.split(',').map((s) => s.trim()).filter(Boolean);
+      const brandSlugs = brands
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
       if (brandSlugs.length > 0) {
         where.brand = {
           slug: { in: brandSlugs },
@@ -203,9 +209,7 @@ export class SearchService {
       itemsWithScore.sort((a, b) => b.score - a.score);
 
       const total = itemsWithScore.length;
-      const paginatedItems = itemsWithScore
-        .slice(skip, skip + limit)
-        .map((item) => item.product);
+      const paginatedItems = itemsWithScore.slice(skip, skip + limit).map((item) => item.product);
 
       return {
         items: paginatedItems,

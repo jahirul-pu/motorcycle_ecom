@@ -77,11 +77,11 @@ export default function SearchBar() {
     setQuery('');
   };
 
-  const hasSuggestions = suggestions && (
-    suggestions.products.length > 0 ||
-    suggestions.categories.length > 0 ||
-    suggestions.brands.length > 0
-  );
+  const hasSuggestions =
+    suggestions &&
+    (suggestions.products.length > 0 ||
+      suggestions.categories.length > 0 ||
+      suggestions.brands.length > 0);
 
   return (
     <div ref={containerRef} className="relative w-full max-w-md">
@@ -108,7 +108,7 @@ export default function SearchBar() {
       </form>
 
       {/* Autocomplete Suggestions Dropdown Overlay */}
-      {isOpen && (debouncedQuery.trim().length >= 2) && (
+      {isOpen && debouncedQuery.trim().length >= 2 && (
         <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-zinc-200 rounded-2xl shadow-xl z-50 overflow-hidden text-xs max-h-[420px] overflow-y-auto">
           {isLoading && !hasSuggestions && (
             <div className="p-4 text-center text-zinc-400">
@@ -119,7 +119,8 @@ export default function SearchBar() {
 
           {!isLoading && !hasSuggestions && (
             <div className="p-4 text-center text-zinc-500">
-              No direct suggestions found for &ldquo;{debouncedQuery}&rdquo;. Press Enter to search catalog.
+              No direct suggestions found for &ldquo;{debouncedQuery}&rdquo;. Press Enter to search
+              catalog.
             </div>
           )}
 

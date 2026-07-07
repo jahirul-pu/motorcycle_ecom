@@ -12,14 +12,22 @@ export class SearchController {
 
   @Get()
   @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
-  @ApiOperation({ summary: 'Search active products with text matching, dynamic filters, sorting, and pagination' })
-  @ApiResponse({ status: 200, description: 'Matched product results and metadata returned successfully.' })
+  @ApiOperation({
+    summary: 'Search active products with text matching, dynamic filters, sorting, and pagination',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Matched product results and metadata returned successfully.',
+  })
   search(@Query() searchQueryDto: SearchQueryDto) {
     return this.searchService.search(searchQueryDto);
   }
 
   @Get('suggestions')
-  @ApiOperation({ summary: 'Get quick suggestions match list (products, categories, brands) matching search prefix' })
+  @ApiOperation({
+    summary:
+      'Get quick suggestions match list (products, categories, brands) matching search prefix',
+  })
   @ApiQuery({
     name: 'q',
     required: true,
