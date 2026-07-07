@@ -4,7 +4,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'primary' | 'secondary';
 }
 
-export const Button = ({ children, variant = 'primary', className = '', ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  variant = 'primary',
+  className = '',
+  ...props
+}: ButtonProps) => {
   const baseStyle = 'px-4 py-2 rounded font-medium transition-colors focus:outline-none';
   const variantStyle =
     variant === 'primary'
