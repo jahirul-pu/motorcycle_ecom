@@ -417,7 +417,7 @@ Testing Foundation
 
 Status
 
-⬜
+☑
 
 ---
 

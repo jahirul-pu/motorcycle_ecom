@@ -77,7 +77,7 @@ Version: 1.0
 ## Testing
 
 - [ ] Vitest
-- [ ] Jest
+- [x] Jest
 - [ ] Playwright
 
 ---
@@ -194,7 +194,7 @@ Version: 1.0
 Phase 1
 
 ```
-50%
+56%
 ```
 
 Phase 2
@@ -252,13 +252,13 @@ Phase 1
 Current Milestone
 
 ```
-Jest & Testing
+Shared Packages
 ```
 
 Current Task
 
 ```
-Configure Jest testing harness for unit and integration testing inside api and web workspaces.
+Configure exports and wire up imports for shared workspace packages.
 ```
 
 Status
@@ -280,7 +280,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-8%
+9%
 ```
 
 Version

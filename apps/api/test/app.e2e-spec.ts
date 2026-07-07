@@ -5,13 +5,15 @@ import { AppModule } from './../src/app.module';
 
 // Mock Redis cache store for E2E testing environment
 jest.mock('cache-manager-redis-yet', () => ({
-  redisStore: jest.fn().mockImplementation(() => Promise.resolve({
-    get: jest.fn(),
-    set: jest.fn(),
-    del: jest.fn(),
-    keys: jest.fn(),
-    reset: jest.fn(),
-  })),
+  redisStore: jest.fn().mockImplementation(() =>
+    Promise.resolve({
+      get: jest.fn(),
+      set: jest.fn(),
+      del: jest.fn(),
+      keys: jest.fn(),
+      reset: jest.fn(),
+    }),
+  ),
 }));
 
 describe('AppController (e2e)', () => {
