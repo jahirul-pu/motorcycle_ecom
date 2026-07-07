@@ -8,19 +8,19 @@ Last Updated: July 7, 2026
 
 # Current Phase
 
-Phase 4 — Search
+Phase 5 — Shopping
 
 ---
 
 # Current Milestone
 
-Search API
+Wishlist
 
 ---
 
 # Current Task
 
-Implement search endpoints supporting keyword index, query matches, and fuzzy suggestions.
+Implement backend Wishlist CRUD operations and endpoints.
 
 ---
 
@@ -156,7 +156,7 @@ Authentication    ████████████████████ 1
 
 Catalog           ████████████████████ 100%
 
-Search            ░░░░░░░░░░░░░░░░░░░░   0%
+Search            ████████████████████ 100%
 
 Shopping          ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -170,7 +170,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-50%
+60%
 ```
 
 ---
@@ -231,6 +231,13 @@ Overall Project
 - Developed category list page and dynamic categories/[slug] route page supporting breadcrumb trails.
 - Developed brand overview page and dynamic brands/[slug] detail route page.
 - Re-verified workspace-wide formatting checks, lint rules, compile builds, and Jest unit tests.
+
+- Applied PostgreSQL schema indexes on brandId, categoryId, and name columns to optimize query speeds.
+- Implemented NestJS SearchModule with full text matching and relevance scoring.
+- Implemented suggestions matching categories, brands, and products.
+- Created client search services, navbar SearchBar with autocomplete, and FilterSidebar components.
+- Implemented `/search` page layout with sorting dropdown, active filters chips, and pagination.
+- Added URL state synchronization and JSON-LD structured search schema.
 
 ---
 

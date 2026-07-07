@@ -11,6 +11,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { BrandsModule } from './modules/brands/brands.module';
 import { ProductsModule } from './modules/products/products.module';
+import { SearchModule } from './modules/search/search.module';
 
 @Module({
   imports: [
@@ -68,6 +69,7 @@ import { ProductsModule } from './modules/products/products.module';
     CategoriesModule,
     BrandsModule,
     ProductsModule,
+    SearchModule,
   ],
   providers: [
     {

@@ -96,7 +96,10 @@ export default function AddressForm({ initialData, onSuccess, onCancel }: Addres
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-zinc-500 mb-1.5" htmlFor="recipientName">
+          <label
+            className="block text-xs font-semibold text-zinc-500 mb-1.5"
+            htmlFor="recipientName"
+          >
             Recipient Name
           </label>
           <div className="relative">

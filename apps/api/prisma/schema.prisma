@@ -119,6 +119,9 @@ model Product {
   orderItems       OrderItem[]
   reviews          Review[]
 
+  @@index([brandId])
+  @@index([categoryId])
+  @@index([name])
   @@map("products")
 }
 

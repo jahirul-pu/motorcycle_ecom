@@ -8,6 +8,7 @@ import { authService } from '@/services/auth.service';
 import { toast } from 'sonner';
 import { Button } from '@motohub/ui';
 import { useRouter } from 'next/navigation';
+import SearchBar from '@/components/navigation/SearchBar';
 
 export default function Navbar() {
   const { user, refreshToken, clearCredentials, isAuthenticated } = useAuthStore();
@@ -36,13 +37,19 @@ export default function Navbar() {
   return (
     <header className="border-b border-zinc-200 bg-white/80 backdrop-blur sticky top-0 z-50">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Bike className="h-8 w-8 text-primary" />
           <span className="text-xl font-extrabold tracking-tight text-zinc-900">
             MOTO<span className="text-primary">HUB</span>
           </span>
         </Link>
-        <nav className="hidden md:flex gap-6 text-sm font-semibold text-zinc-500">
+
+        {/* Center Search Bar */}
+        <div className="hidden sm:flex flex-1 justify-center max-w-md mx-6">
+          <SearchBar />
+        </div>
+
+        <nav className="hidden md:flex gap-6 text-sm font-semibold text-zinc-500 mr-4">
           <Link href="/products" className="hover:text-zinc-950 transition-colors cursor-pointer">
             Parts
           </Link>
