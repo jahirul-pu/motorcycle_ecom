@@ -3,6 +3,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 import { HealthModule } from './modules/health/health.module';
+import { PrismaModule } from './modules/database/prisma.module';
+import { UsersModule } from './modules/users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -34,6 +37,9 @@ import { HealthModule } from './modules/health/health.module';
       },
     }),
     HealthModule,
+    PrismaModule,
+    UsersModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

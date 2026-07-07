@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { AppModule } from './../src/app.module';
+import { PrismaService } from '../src/modules/database/prisma.service';
 
 // Mock Redis cache store for E2E testing environment
 jest.mock('cache-manager-redis-yet', () => ({
@@ -22,7 +23,23 @@ describe('AppController (e2e)', () => {
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+      .overrideProvider(PrismaService)
+      .useValue({
+        $connect: jest.fn(),
+        $disconnect: jest.fn(),
+        refreshToken: {
+          findUnique: jest.fn(),
+          create: jest.fn(),
+          delete: jest.fn(),
+        },
+        user: {
+          findUnique: jest.fn(),
+          create: jest.fn(),
+          update: jest.fn(),
+        },
+      })
+      .compile();
 
     app = moduleFixture.createNestApplication();
     app.setGlobalPrefix('api/v1');

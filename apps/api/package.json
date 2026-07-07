@@ -29,7 +29,12 @@
     "cache-manager-redis-yet": "^5.0.1",
     "@motohub/config": "workspace:*",
     "@motohub/types": "workspace:*",
-    "@motohub/utils": "workspace:*"
+    "@motohub/utils": "workspace:*",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -42,7 +47,9 @@
     "@types/jest": "^29.5.12",
     "ts-jest": "^29.1.2",
     "supertest": "^6.3.4",
-    "@types/supertest": "^6.0.2"
+    "@types/supertest": "^6.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/passport-jwt": "^4.0.1"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
