@@ -18,7 +18,10 @@ model User {
   role            String   @default("customer") // "customer" | "admin" | "super_admin"
   isActive        Boolean  @default(true) @map("is_active")
   emailVerifiedAt DateTime? @map("email_verified_at")
+  emailVerificationToken String? @unique @map("email_verification_token")
   lastLoginAt     DateTime? @map("last_login_at")
+  resetPasswordToken   String?   @unique @map("reset_password_token")
+  resetPasswordExpires DateTime? @map("reset_password_expires")
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
 

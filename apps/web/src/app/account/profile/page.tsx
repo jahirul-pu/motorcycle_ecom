@@ -1,0 +1,77 @@
+'use client';
+
+import * as React from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/store/auth.store';
+import Navbar from '@/components/layout/Navbar';
+import ProfileForm from '@/components/account/ProfileForm';
+import { User, CreditCard, MapPin, Package } from 'lucide-react';
+import Link from 'next/link';
+
+export default function ProfilePage() {
+  const { isAuthenticated, user } = useAuthStore();
+  const [mounted, setMounted] = React.useState(false);
+  const router = useRouter();
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (mounted && !isAuthenticated) {
+      router.push('/login');
+    }
+  }, [mounted, isAuthenticated, router]);
+
+  if (!mounted || !isAuthenticated || !user) {
+    return null;
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-50">
+      <Navbar />
+
+      <main className="flex-1 container mx-auto py-10 px-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <aside className="space-y-1.5 md:col-span-1">
+            <h2 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider px-3 mb-3">
+              Rider Account
+            </h2>
+            <Link
+              href="/account/profile"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-500 text-sm font-medium transition-all"
+            >
+              <User className="h-4.5 w-4.5" />
+              Profile Details
+            </Link>
+            <span className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-900/50 hover:text-white text-zinc-400 text-sm font-medium transition-all cursor-pointer">
+              <Package className="h-4.5 w-4.5" />
+              My Orders
+            </span>
+            <span className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-900/50 hover:text-white text-zinc-400 text-sm font-medium transition-all cursor-pointer">
+              <MapPin className="h-4.5 w-4.5" />
+              Addresses
+            </span>
+            <span className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-900/50 hover:text-white text-zinc-400 text-sm font-medium transition-all cursor-pointer">
+              <CreditCard className="h-4.5 w-4.5" />
+              Payment Methods
+            </span>
+          </aside>
+
+          <section className="md:col-span-3 space-y-6">
+            <div>
+              <h1 className="text-2xl font-bold text-white tracking-tight">Profile Details</h1>
+              <p className="text-sm text-zinc-400 mt-1.5">
+                Update your rider profile details and contact number settings.
+              </p>
+            </div>
+
+            <div className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm">
+              <ProfileForm />
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}

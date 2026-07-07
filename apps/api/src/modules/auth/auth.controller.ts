@@ -15,6 +15,8 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { ForgotPasswordDto } from './dto/forgot-password.dto';
+import { ResetPasswordDto } from './dto/reset-password.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -67,5 +69,22 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Unauthorized access.' })
   getProfile(@Request() req) {
     return req.user;
+  }
+
+  @Post('forgot-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Initiate password reset recovery request' })
+  @ApiResponse({ status: 200, description: 'Mock recovery email sent/logged successfully.' })
+  forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
+    return this.authService.forgotPassword(forgotPasswordDto.email);
+  }
+
+  @Post('reset-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Complete password recovery reset flow' })
+  @ApiResponse({ status: 200, description: 'Password successfully updated.' })
+  @ApiResponse({ status: 401, description: 'Invalid or expired token.' })
+  resetPassword(@Body() resetPasswordDto: ResetPasswordDto) {
+    return this.authService.resetPassword(resetPasswordDto.token, resetPasswordDto.password);
   }
 }

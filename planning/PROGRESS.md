@@ -18,7 +18,9 @@ Frontend Infrastructure
 
 ---
 
-Implement customer registration, login, and logout customer forms, session management in client state, and protected routes on the frontend.
+# Current Task
+
+Implement Email Verification (verification token checkpoints) and Customer Address Book pages.
 
 ---
 
@@ -83,6 +85,22 @@ Not Started
 - Configure frontend infrastructure, ThemeProvider, TanStack Query client, Sonner toast notifications, global layout, ErrorBoundary, route-level error/not-found layouts, and loading spinner components.
 - Configure GitHub Actions workflow running formatting, linting, typechecking, builds, and unit test suites on push and pull requests.
 - Conduct full documentation audit validating schema.prisma with DATABASE.md, and NestJS controllers with API.md.
+- Install client-side dependencies (Zustand, React Hook Form, @hookform/resolvers, Zod) in apps/web.
+- Implement persisted Zustand state store mapping customer credentials and user session tokens.
+- Build Fetch-based API client wrapper in src/lib/api.ts resolving auto-refresh token rotations and endpoint authorizations.
+- Implement client forms and schema validations (LoginForm, RegisterForm) using React Hook Form and Zod.
+- Create pages login/page.tsx and register/page.tsx, integrating them into the monorepo.
+- Refactor homepage to mount dynamic Navbar supporting customer login state changes and logout revocation.
+- Add password reset tokens and token expiration fields to User database model.
+- Apply dev migrations and generate local Prisma Client configurations.
+- Export ForgotPasswordDto, ResetPasswordDto, and UpdateProfileDto shared types in packages/types.
+- Implement forgot-password and reset-password security logic in backend AuthService.
+- Expose password recovery endpoints POST /auth/forgot-password and POST /auth/reset-password in AuthController.
+- Implement MeController exposing protected profile endpoints GET /me and PATCH /me.
+- Register MeController routing under NestJS UsersModule.
+- Create ForgotPasswordForm, ResetPasswordForm, and ProfileForm frontend validation forms with React Hook Form and Zod.
+- Create pages /forgot-password, /reset-password, and /account/profile, wrapping search-param-dependent elements in React Suspense layouts.
+- Refactor Navbar to redirect greetings text to user profile settings.
 
 ---
 
@@ -92,9 +110,10 @@ None
 
 ---
 
-1. Implement state management using Zustand for customer session token storage and user metadata.
-2. Create customer registration, login, and profile UI pages using form validation (React Hook Form + Zod).
-3. Create page interceptors and protected route layout checks on the frontend.
+1. Implement email verification token generation on registration and POST /auth/verify-email check endpoint in NestJS.
+2. Create email verification landing route page on the Next.js frontend.
+3. Create backend AddressController supporting CRUD address settings.
+4. Create address list and address book form pages in the frontend account dashboard.
 
 ---
 
@@ -134,7 +153,7 @@ Planning          ████████████████████ 1
 
 Foundation        ████████████████████ 100%
 
-Authentication    ██░░░░░░░░░░░░░░░░░░  10%
+Authentication    ████████████████░░░░  82%
 
 Catalog           ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -152,7 +171,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-15%
+22%
 ```
 
 ---
@@ -171,7 +190,27 @@ Overall Project
 - Auto-formatted the entire codebase with Prettier to ensure formatting checks pass.
 - Audited database tables and REST API route declarations, ensuring complete alignment with architectural documentation.
 - Completed Phase 1 foundation and officially transitioned the project sprint to Phase 2 (Authentication).
+- Installed frontend dependencies (zustand, react-hook-form, @hookform/resolvers, zod) in web application.
+- Configured persisted authentication state store with Zustand.
+- Built client fetch client wrapper with token rotation (refresh token) and auth interceptors.
+- Created LoginForm and RegisterForm with Zod schema validation and hook-form.
+- Implemented /login and /register pages with premium dark design.
+- Refactored homepage layout, replacing static header with interactive Navbar component supporting auth login/logout state changes.
+- Mocked next/navigation router in Jest setup to fix jsdom testing failures.
+- Verified complete workspace typescript typechecking, formatting checks, and test runner passes.
+- Added resetPasswordToken and resetPasswordExpires columns to database.
+- Applied DB changes via non-interactive Prisma schema push and updated Prisma Client.
+- Added forgot-password, reset-password, and update-profile DTO interfaces to packages/types.
+- Implemented forgot/reset backend business logic in AuthService and exposed routes in AuthController.
+- Created MeController mapping GET /me and PATCH /me routes in UsersModule.
+- Built ForgotPasswordForm, ResetPasswordForm, and ProfileForm components.
+- Set up /forgot-password, /reset-password, and /account/profile page views on frontend.
+- Wrapped ResetPasswordForm in a React.Suspense boundary to avoid static generation runtime build failures.
+- Integrated user profile links into the header Navbar.
+- Fixed typescript and unused router variable lints, passing ESLint validations successfully.
+- Successfully compiled full monorepo production builds with Next.js and NestJS.
+- Executed Jest workspace unit tests, passing all frontend and backend assertions.
 
 ---
 
-Complete Customer Registration, Login, and Logout forms and session state management in Phase 2.
+Complete Email Verification and Customer Address Book in Phase 2.

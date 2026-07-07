@@ -125,4 +125,54 @@ export class AuthService {
     }
     return { success: true };
   }
+
+  async forgotPassword(email: string) {
+    const user = await this.usersService.findByEmail(email);
+    if (!user) {
+      return { success: true };
+    }
+
+    const token = crypto.randomBytes(32).toString('hex');
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+    const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        resetPasswordToken: tokenHash,
+        resetPasswordExpires: expiresAt,
+      },
+    });
+
+    console.log(
+      `\n=== PASSWORD RESET MAIL MOCK ===\nTo: ${email}\nLink: http://localhost:3000/reset-password?token=${token}\n================================\n`,
+    );
+
+    return { success: true };
+  }
+
+  async resetPassword(token: string, newPassword: string) {
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+
+    const user = await this.prisma.user.findUnique({
+      where: { resetPasswordToken: tokenHash },
+    });
+
+    if (!user || !user.resetPasswordExpires || user.resetPasswordExpires < new Date()) {
+      throw new UnauthorizedException('Invalid or expired reset token');
+    }
+
+    const passwordHash = await this.passwordService.hashPassword(newPassword);
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        passwordHash,
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+      },
+    });
+
+    return { success: true };
+  }
 }

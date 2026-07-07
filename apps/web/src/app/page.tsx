@@ -1,27 +1,13 @@
-import { Bike, Shield, Settings } from 'lucide-react';
+import { Shield, Settings } from 'lucide-react';
 import { Button } from '@motohub/ui';
 import { config } from '@motohub/config';
 import { formatCurrency } from '@motohub/utils';
+import Navbar from '@/components/layout/Navbar';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-50">
-      <header className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-2">
-            <Bike className="h-8 w-8 text-amber-500" />
-            <span className="text-xl font-bold tracking-tight text-white">
-              MOTO<span className="text-amber-500">HUB</span>
-            </span>
-          </div>
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-            <span className="hover:text-white transition-colors cursor-pointer">Parts</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Gear</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Accessories</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Compatibility</span>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20">
         <div className="max-w-3xl space-y-6">

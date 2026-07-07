@@ -12,6 +12,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
     "@motohub/config": "workspace:*",
     "@motohub/types": "workspace:*",
     "@motohub/ui": "workspace:*",
@@ -24,8 +25,11 @@
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.81.0",
     "sonner": "^2.0.7",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.5",

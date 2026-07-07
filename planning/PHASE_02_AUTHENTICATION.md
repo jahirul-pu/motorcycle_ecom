@@ -4,7 +4,7 @@ Version: 1.0
 
 Estimated Duration: 5–7 Days
 
-Status: Not Started
+Status: In Progress
 
 Priority: Critical
 
@@ -74,7 +74,7 @@ Authentication Module
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -112,7 +112,7 @@ User Module
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -158,7 +158,7 @@ Registration
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -207,7 +207,7 @@ Login
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -255,7 +255,7 @@ Refresh Tokens
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -285,7 +285,7 @@ Logout
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -321,7 +321,7 @@ Forgot Password
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -355,7 +355,7 @@ Reset Password
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -391,7 +391,7 @@ Customer Profile
 
 Status
 
-⬜
+☑
 
 ---
 

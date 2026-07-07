@@ -96,14 +96,14 @@ Version: 1.0
 - [x] Users
 - [x] JWT
 - [x] Refresh Tokens
-- [ ] Register
-- [ ] Login
-- [ ] Logout
-- [ ] Forgot Password
-- [ ] Reset Password
+- [x] Register
+- [x] Login
+- [x] Logout
+- [x] Forgot Password
+- [x] Reset Password
 - [ ] Email Verification
 - [ ] Address Book
-- [ ] Protected Routes
+- [x] Protected Routes
 
 ---
 
@@ -209,7 +209,7 @@ Phase 1
 Phase 2
 
 ```
-0%
+82%
 ```
 
 Phase 3
@@ -261,13 +261,13 @@ Phase 2
 Current Milestone
 
 ```
-Register / Login / Logout UI & Integration
+Email Verification & Address Book
 ```
 
 Current Task
 
 ```
-Implement registration, login, and logout customer forms, session management inside client state, and protected route handlers on the frontend.
+Implement email verification token verification, backend address controllers, and address forms/address book pages on the frontend.
 ```
 
 Status
@@ -289,7 +289,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-15%
+22%
 ```
 
 Version
