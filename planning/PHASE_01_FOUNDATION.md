@@ -297,7 +297,7 @@ Docker
 
 Status
 
-⬜
+☑
 
 ---
 

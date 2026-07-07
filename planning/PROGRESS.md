@@ -14,13 +14,13 @@ Phase 1 — Foundation
 
 # Current Milestone
 
-Docker
+ESLint & Prettier
 
 ---
 
 # Current Task
 
-Configure Docker and verify multi-container setup running locally.
+Configure ESLint and Prettier monorepo rules and workspace packages.
 
 ---
 
@@ -61,6 +61,9 @@ Not Started
 - Configure Redis connection parameters in NestJS backend
 - Create global CacheModule config and cache manager integration
 - Verify build and startup compilation
+- Create apps/api/Dockerfile for production build NestJS container
+- Create apps/web/Dockerfile for production build Next.js container
+- Configure multi-container docker-compose stack settings appending api and web services
 
 ---
 
@@ -72,9 +75,10 @@ None
 
 # Next Tasks
 
-1. Configure Docker and multi-container configurations (docker-compose.yml)
-2. Setup environment connection parameters for container database and caching services
-3. Verify local services connect to local Docker containers
+1. Configure root ESLint file and extends mappings
+2. Configure package-level ESLint profiles in apps and packages
+3. Configure root Prettier format configs (.prettierrc, .prettierignore)
+4. Verify monorepo lint and format checks run successfully
 
 ---
 
@@ -112,7 +116,7 @@ develop
 ```
 Planning          ████████████████████ 100%
 
-Foundation        ███████░░░░░░░░░░░░░  37%
+Foundation        ████████░░░░░░░░░░░░  44%
 
 Authentication    ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -132,19 +136,18 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-6%
+7%
 ```
 
 ---
 
 # Session Notes
 
-- Installed and configured CacheModule using Redis client packages in apps/api.
-- Enabled cache manager integration pointing dynamically to local Redis connection details.
-- Verified compilation builds cleanly with no errors.
+- Created Dockerfile build stages for Next.js web application and NestJS backend services.
+- Updated multi-container docker-compose configurations integrating database, caching, and custom app containers.
 
 ---
 
 # Next Session Goal
 
-Complete Phase 1, Milestone 7 — Docker.
+Complete Phase 1, Milestone 8 — ESLint & Prettier.
