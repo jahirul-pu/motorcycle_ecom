@@ -101,8 +101,8 @@ Version: 1.0
 - [x] Logout
 - [x] Forgot Password
 - [x] Reset Password
-- [ ] Email Verification
-- [ ] Address Book
+- [x] Email Verification
+- [x] Address Book
 - [x] Protected Routes
 
 ---
@@ -255,19 +255,19 @@ Phase 8
 Current Phase
 
 ```
-Phase 2
+Phase 3
 ```
 
 Current Milestone
 
 ```
-Email Verification & Address Book
+Catalog Structure
 ```
 
 Current Task
 
 ```
-Implement email verification token verification, backend address controllers, and address forms/address book pages on the frontend.
+Define product category schema models and integrate seed operations.
 ```
 
 Status
@@ -289,7 +289,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-22%
+26%
 ```
 
 Version

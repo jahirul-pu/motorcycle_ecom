@@ -69,13 +69,24 @@ export class AuthService {
     }
 
     const passwordHash = await this.passwordService.hashPassword(data.password);
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const verificationTokenHash = crypto
+      .createHash('sha256')
+      .update(verificationToken)
+      .digest('hex');
+
     const user = await this.usersService.create({
       email: data.email,
       name: data.name,
       phone: data.phone,
       passwordHash,
       role: 'customer',
+      emailVerificationToken: verificationTokenHash,
     });
+
+    console.log(
+      `\n=== EMAIL VERIFICATION MAIL MOCK ===\nTo: ${data.email}\nLink: http://localhost:3000/verify-email?token=${verificationToken}\n====================================\n`,
+    );
 
     return this.login(user);
   }
@@ -170,6 +181,28 @@ export class AuthService {
         passwordHash,
         resetPasswordToken: null,
         resetPasswordExpires: null,
+      },
+    });
+
+    return { success: true };
+  }
+
+  async verifyEmail(token: string) {
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+
+    const user = await this.prisma.user.findUnique({
+      where: { emailVerificationToken: tokenHash },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('Invalid or expired verification token');
+    }
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        emailVerifiedAt: new Date(),
+        emailVerificationToken: null,
       },
     });
 

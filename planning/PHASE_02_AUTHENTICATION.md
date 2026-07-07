@@ -427,7 +427,7 @@ Address Book
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -471,7 +471,7 @@ Protected Routes
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -511,7 +511,7 @@ Email Verification Infrastructure
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -541,7 +541,7 @@ Validation
 
 Status
 
-⬜
+☑
 
 ---
 

@@ -4,6 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
+import helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,8 +13,15 @@ async function bootstrap() {
   const globalPrefix = 'api/v1';
   app.setGlobalPrefix(globalPrefix);
 
-  // Enable CORS
-  app.enableCors();
+  // Enable Helmet security headers
+  app.use(helmet());
+
+  // Enable CORS with secure origin checks
+  const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
+  app.enableCors({
+    origin: corsOrigin,
+    credentials: true,
+  });
 
   // Register Global Filters, Pipes, and Interceptors
   app.useGlobalFilters(new HttpExceptionFilter());

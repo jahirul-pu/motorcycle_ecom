@@ -41,3 +41,45 @@ export interface UpdateProfileDto {
   name?: string;
   phone?: string;
 }
+
+export interface VerifyEmailDto {
+  token: string;
+}
+
+export interface Address {
+  id: string;
+  userId: string;
+  recipientName: string;
+  phone: string;
+  addressLine1: string;
+  addressLine2?: string;
+  area: string;
+  city: string;
+  postalCode?: string;
+  country: string;
+  isDefault: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateAddressDto {
+  recipientName: string;
+  phone: string;
+  addressLine1: string;
+  addressLine2?: string;
+  area: string;
+  city: string;
+  postalCode?: string;
+  isDefault?: boolean;
+}
+
+export interface UpdateAddressDto {
+  recipientName?: string;
+  phone?: string;
+  addressLine1?: string;
+  addressLine2?: string;
+  area?: string;
+  city?: string;
+  postalCode?: string;
+  isDefault?: boolean;
+}

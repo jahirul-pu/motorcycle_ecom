@@ -4,11 +4,11 @@ import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/auth.store';
 import Navbar from '@/components/layout/Navbar';
-import ProfileForm from '@/components/account/ProfileForm';
+import AddressBook from '@/components/account/AddressBook';
 import { User, CreditCard, MapPin, Package } from 'lucide-react';
 import Link from 'next/link';
 
-export default function ProfilePage() {
+export default function AddressesPage() {
   const { isAuthenticated, user } = useAuthStore();
   const [mounted, setMounted] = React.useState(false);
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function ProfilePage() {
             </h2>
             <Link
               href="/account/profile"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-500 text-sm font-medium transition-all"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-900/50 hover:text-white text-zinc-400 text-sm font-medium transition-all"
             >
               <User className="h-4.5 w-4.5" />
               Profile Details
@@ -50,7 +50,7 @@ export default function ProfilePage() {
             </span>
             <Link
               href="/account/addresses"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-900/50 hover:text-white text-zinc-400 text-sm font-medium transition-all cursor-pointer"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-500 text-sm font-medium transition-all"
             >
               <MapPin className="h-4.5 w-4.5" />
               Addresses
@@ -62,15 +62,8 @@ export default function ProfilePage() {
           </aside>
 
           <section className="md:col-span-3 space-y-6">
-            <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Profile Details</h1>
-              <p className="text-sm text-zinc-400 mt-1.5">
-                Update your rider profile details and contact number settings.
-              </p>
-            </div>
-
             <div className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm">
-              <ProfileForm />
+              <AddressBook />
             </div>
           </section>
         </div>

@@ -8,19 +8,19 @@ Last Updated: July 7, 2026
 
 # Current Phase
 
-Phase 1 — Foundation
+Phase 3 — Catalog
 
 ---
 
 # Current Milestone
 
-Frontend Infrastructure
+Catalog Structure
 
 ---
 
 # Current Task
 
-Implement Email Verification (verification token checkpoints) and Customer Address Book pages.
+Define product category schema models and integrate seed operations.
 
 ---
 
@@ -110,10 +110,9 @@ None
 
 ---
 
-1. Implement email verification token generation on registration and POST /auth/verify-email check endpoint in NestJS.
-2. Create email verification landing route page on the Next.js frontend.
-3. Create backend AddressController supporting CRUD address settings.
-4. Create address list and address book form pages in the frontend account dashboard.
+# In Progress
+
+None
 
 ---
 
@@ -153,7 +152,7 @@ Planning          ████████████████████ 1
 
 Foundation        ████████████████████ 100%
 
-Authentication    ████████████████░░░░  82%
+Authentication    ████████████████████ 100%
 
 Catalog           ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -171,7 +170,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-22%
+26%
 ```
 
 ---
@@ -211,6 +210,19 @@ Overall Project
 - Successfully compiled full monorepo production builds with Next.js and NestJS.
 - Executed Jest workspace unit tests, passing all frontend and backend assertions.
 
+- Added email verification token column to database schema.
+- Synchronized database schema changes non-interactively using Prisma schema push.
+- Implemented secure email verification logic and controllers on the NestJS api.
+- Created verify-email landing routing page on web client.
+- Built backend AddressesService and AddressesController supporting full Address Book CRUD.
+- Registered Addresses controller under NestJS UsersModule.
+- Developed frontend AddressForm and AddressBook components with Zod and Hook-Form validations.
+- Integrated addresses list view dashboard on frontend web app under `/account/addresses`.
+- Installed Helmet and NestJS Throttler packages in apps/api.
+- Configured secure CORS options, Helmet protection, and global throttler rate limiting on the API.
+- Verified monorepo clean compile, ESLint checks, formatting, and unit tests passes.
+- Marked Phase 2 Authentication as 100% completed and transitioned active sprints to Phase 3 Catalog.
+
 ---
 
-Complete Email Verification and Customer Address Book in Phase 2.
+Complete Phase 3 Catalog and categories listing layout.
