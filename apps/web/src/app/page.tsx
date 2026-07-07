@@ -1,4 +1,4 @@
-import { Bike, Shield, Settings } from "lucide-react";
+import { Bike, Shield, Settings } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -26,7 +26,8 @@ export default function Home() {
             Premium Motorcycle Parts & Accessories
           </h1>
           <p className="text-lg text-zinc-400 max-w-xl mx-auto">
-            Engineered for performance, designed for riders. The best selection of genuine spares and riding gear in Bangladesh.
+            Engineered for performance, designed for riders. The best selection of genuine spares
+            and riding gear in Bangladesh.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800 bg-zinc-900/50 text-sm text-zinc-300">

@@ -1,11 +1,18 @@
 module.exports = {
-  extends: ["eslint:recommended", "prettier"],
+  parser: '@typescript-eslint/parser',
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  plugins: ['@typescript-eslint'],
   parserOptions: {
     ecmaVersion: 2022,
-    sourceType: "module"
+    sourceType: 'module',
   },
   env: {
     node: true,
-    es6: true
-  }
+    es6: true,
+  },
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'no-unused-vars': 'off', // handled by TS rule
+  },
 };

@@ -243,15 +243,15 @@ Formula
 
 Brand
 
-+
+-
 
 Model
 
-+
+-
 
 Product Type
 
-+
+-
 
 Variant
 

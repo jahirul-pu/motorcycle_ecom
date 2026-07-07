@@ -332,16 +332,16 @@ Production
 
 # Project Status Tracking
 
-| Phase | Status |
-|--------|--------|
-| Planning | ✅ Complete |
-| Foundation | ⏳ Pending |
-| Catalog | ⏳ Pending |
-| Commerce | ⏳ Pending |
-| Customer Portal | ⏳ Pending |
-| Admin Panel | ⏳ Pending |
-| Optimization | ⏳ Pending |
-| Production Launch | ⏳ Pending |
+| Phase             | Status      |
+| ----------------- | ----------- |
+| Planning          | ✅ Complete |
+| Foundation        | ⏳ Pending  |
+| Catalog           | ⏳ Pending  |
+| Commerce          | ⏳ Pending  |
+| Customer Portal   | ⏳ Pending  |
+| Admin Panel       | ⏳ Pending  |
+| Optimization      | ⏳ Pending  |
+| Production Launch | ⏳ Pending  |
 
 ---
 

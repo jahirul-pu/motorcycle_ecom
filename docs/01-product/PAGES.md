@@ -633,21 +633,21 @@ Home
 
 ├── Categories
 
-│   └── Products
+│ └── Products
 
-│       └── Product Details
+│ └── Product Details
 
 ├── Brands
 
-│   └── Products
+│ └── Products
 
 ├── Search
 
 ├── Cart
 
-│   └── Checkout
+│ └── Checkout
 
-│       └── Order Success
+│ └── Order Success
 
 ├── Login
 
@@ -655,13 +655,13 @@ Home
 
 ├── Account
 
-│   ├── Orders
+│ ├── Orders
 
-│   ├── Addresses
+│ ├── Addresses
 
-│   ├── Wishlist
+│ ├── Wishlist
 
-│   └── Profile
+│ └── Profile
 
 └── CMS Pages
 

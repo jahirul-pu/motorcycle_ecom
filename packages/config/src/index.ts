@@ -1,4 +1,4 @@
 export const config = {
   appName: 'MotoHub',
-  apiPrefix: '/api/v1'
+  apiPrefix: '/api/v1',
 };
