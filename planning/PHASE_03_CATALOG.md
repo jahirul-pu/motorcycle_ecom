@@ -71,7 +71,7 @@ Category Module
 
 Status
 
-⬜
+☑
 
 ---
 
@@ -141,7 +141,7 @@ Brand Module
 
 Status
 
-⬜
+☑
 
 ---
 

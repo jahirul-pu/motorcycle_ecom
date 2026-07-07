@@ -83,3 +83,32 @@ export interface UpdateAddressDto {
   postalCode?: string;
   isDefault?: boolean;
 }
+
+export interface Category {
+  id: string;
+  parentId: string | null;
+  name: string;
+  slug: string;
+  description: string | null;
+  imageId: string | null;
+  sortOrder: number;
+  isActive: boolean;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  createdAt: string;
+  updatedAt: string;
+  children?: Category[];
+  parent?: Category | null;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  slug: string;
+  logoId: string | null;
+  description: string | null;
+  website: string | null;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}

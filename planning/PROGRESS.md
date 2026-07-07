@@ -14,13 +14,13 @@ Phase 3 — Catalog
 
 # Current Milestone
 
-Catalog Structure
+Product Module
 
 ---
 
 # Current Task
 
-Define product category schema models and integrate seed operations.
+Define Product schema models, implement product details endpoints and frontend pages with loading skeletons.
 
 ---
 
@@ -154,7 +154,7 @@ Foundation        ████████████████████ 1
 
 Authentication    ████████████████████ 100%
 
-Catalog           ░░░░░░░░░░░░░░░░░░░░   0%
+Catalog           ██████░░░░░░░░░░░░░░  30%
 
 Search            ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -170,7 +170,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-26%
+30%
 ```
 
 ---
@@ -223,6 +223,15 @@ Overall Project
 - Verified monorepo clean compile, ESLint checks, formatting, and unit tests passes.
 - Marked Phase 2 Authentication as 100% completed and transitioned active sprints to Phase 3 Catalog.
 
+- Exported shared Category and Brand interfaces in packages/types and recompiled.
+- Implemented NestJS CategoriesService and CategoriesController exposing public tree listing and slug endpoints.
+- Implemented NestJS BrandsService and BrandsController exposing public list and details endpoints.
+- Registered new catalog modules in backend AppModule.
+- Created web client CategoryCard and BrandCard layout elements.
+- Developed category list page and dynamic categories/[slug] route page supporting breadcrumb trails.
+- Developed brand overview page and dynamic brands/[slug] detail route page.
+- Re-verified workspace-wide formatting checks, lint rules, compile builds, and Jest unit tests.
+
 ---
 
-Complete Phase 3 Catalog and categories listing layout.
+Complete Phase 3 Product Module, pricing display, skeletons, image galleries.

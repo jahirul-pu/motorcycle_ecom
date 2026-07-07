@@ -109,8 +109,8 @@ Version: 1.0
 
 # Phase 3 — Catalog
 
-- [ ] Categories
-- [ ] Brands
+- [x] Categories
+- [x] Brands
 - [ ] Products
 - [ ] Product Images
 - [ ] Pricing
@@ -119,8 +119,8 @@ Version: 1.0
 - [ ] Specifications
 - [ ] Compatibility
 - [ ] Product Details
-- [ ] Category Pages
-- [ ] Brand Pages
+- [x] Category Pages
+- [x] Brand Pages
 
 ---
 
@@ -261,13 +261,13 @@ Phase 3
 Current Milestone
 
 ```
-Catalog Structure
+Product Module
 ```
 
 Current Task
 
 ```
-Define product category schema models and integrate seed operations.
+Define Product schema models, implement product details endpoints and frontend pages with loading skeletons.
 ```
 
 Status
@@ -289,7 +289,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-26%
+30%
 ```
 
 Version

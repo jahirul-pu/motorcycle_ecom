@@ -8,6 +8,8 @@ import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { BrandsModule } from './modules/brands/brands.module';
 
 @Module({
   imports: [
@@ -48,6 +50,8 @@ import { APP_GUARD } from '@nestjs/core';
     PrismaModule,
     UsersModule,
     AuthModule,
+    CategoriesModule,
+    BrandsModule,
   ],
   providers: [
     {
