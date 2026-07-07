@@ -153,7 +153,7 @@ Next.js Application
 
 Status
 
-⬜
+☑
 
 ---
 

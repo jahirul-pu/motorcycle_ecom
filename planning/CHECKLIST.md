@@ -29,11 +29,11 @@ Version: 1.0
 
 ## Frontend
 
-- [ ] Next.js
-- [ ] Tailwind
-- [ ] shadcn/ui
-- [ ] Theme
-- [ ] Layout
+- [x] Next.js
+- [x] Tailwind
+- [x] shadcn/ui
+- [x] Theme
+- [x] Layout
 - [ ] Providers
 
 ---
@@ -194,7 +194,7 @@ Version: 1.0
 Phase 1
 
 ```
-12%
+19%
 ```
 
 Phase 2
@@ -252,13 +252,13 @@ Phase 1
 Current Milestone
 
 ```
-Next.js Application
+NestJS Backend
 ```
 
 Current Task
 
 ```
-Create apps/web Next.js app, install packages, and set up base configurations.
+Create apps/api NestJS application and base configurations.
 ```
 
 Status
@@ -280,7 +280,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-2%
+3%
 ```
 
 Version
