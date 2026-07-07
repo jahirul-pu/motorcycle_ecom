@@ -85,7 +85,7 @@ Repository Initialization
 
 Status
 
-⬜
+☑
 
 ---
 
