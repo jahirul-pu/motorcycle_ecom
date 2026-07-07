@@ -1,0 +1,27 @@
+{
+    "name": "motohub",
+    "version": "1.0.0",
+    "private": true,
+    "packageManager": "pnpm@10",
+    "engines": {
+        "node": ">=22"
+    },
+    "scripts": {
+        "dev": "pnpm -r --parallel dev",
+        "build": "pnpm -r build",
+        "start": "pnpm -r start",
+        "lint": "pnpm -r lint",
+        "format": "prettier --write .",
+        "typecheck": "pnpm -r typecheck",
+        "test": "pnpm -r test",
+        "test:coverage": "pnpm -r test:coverage",
+        "test:e2e": "pnpm -r test:e2e",
+        "clean": "pnpm -r clean",
+        "prisma:generate": "pnpm --filter api prisma generate",
+        "prisma:migrate": "pnpm --filter api prisma migrate dev",
+        "prisma:deploy": "pnpm --filter api prisma migrate deploy",
+        "prisma:reset": "pnpm --filter api prisma migrate reset",
+        "prisma:seed": "pnpm --filter api prisma db seed",
+        "prisma:studio": "pnpm --filter api prisma studio"
+    }
+}
