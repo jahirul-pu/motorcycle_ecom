@@ -267,7 +267,7 @@ Redis
 
 Status
 
-⬜
+☑
 
 ---
 
