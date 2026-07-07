@@ -93,9 +93,9 @@ Version: 1.0
 
 # Phase 2 — Authentication
 
-- [ ] Users
-- [ ] JWT
-- [ ] Refresh Tokens
+- [x] Users
+- [x] JWT
+- [x] Refresh Tokens
 - [ ] Register
 - [ ] Login
 - [ ] Logout
