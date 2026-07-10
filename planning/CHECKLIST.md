@@ -152,14 +152,14 @@ Version: 1.0
 
 # Phase 6 — Payments
 
-- [ ] Cash on Delivery
-- [ ] SSLCommerz
-- [ ] bKash
-- [ ] Nagad
-- [ ] Rocket
-- [ ] Payment Verification
-- [ ] Payment History
-- [ ] Failure Recovery
+- [x] Cash on Delivery
+- [x] SSLCommerz
+- [x] bKash
+- [x] Nagad
+- [x] Rocket
+- [x] Payment Verification
+- [x] Payment History
+- [x] Failure Recovery
 
 ---
 

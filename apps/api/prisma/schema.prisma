@@ -434,16 +434,19 @@ model OrderItem {
 }
 
 model Payment {
-  id            String   @id @default(uuid()) @db.Uuid
-  orderId       String   @unique @map("order_id") @db.Uuid
-  method        String   // "Cash on Delivery" | "bKash" | "Nagad" | "Rocket" | "SSLCommerz"
-  gateway       String?
-  transactionId String?  @map("transaction_id")
-  amount        Float
-  status        String   @default("Pending") // "Pending" | "Paid" | "Failed" | "Refunded"
-  paidAt        DateTime? @map("paid_at")
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt     DateTime @updatedAt @map("updated_at")
+  id               String   @id @default(uuid()) @db.Uuid
+  orderId          String   @unique @map("order_id") @db.Uuid
+  method           String   // "Cash on Delivery" | "bKash" | "Nagad" | "Rocket" | "SSLCommerz"
+  gateway          String?
+  gatewayReference String?  @map("gateway_reference")
+  transactionId    String?  @map("transaction_id")
+  amount           Float
+  status           String   @default("Pending") // "Pending" | "Paid" | "Failed" | "Refunded"
+  paidAt           DateTime? @map("paid_at")
+  verifiedAt       DateTime? @map("verified_at")
+  metadata         Json?     @map("metadata")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
 
   order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 

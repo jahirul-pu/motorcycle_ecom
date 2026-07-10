@@ -66,4 +66,12 @@ export class OrdersController {
   getOrder(@Request() req, @Param('id') id: string) {
     return this.ordersService.getOrder(req.user.userId, id);
   }
+
+  @Get(':id/payment')
+  @ApiOperation({ summary: 'Get order payment details' })
+  @ApiResponse({ status: 200, description: 'Order payment returned.' })
+  @ApiResponse({ status: 404, description: 'Order or payment not found.' })
+  getOrderPayment(@Request() req, @Param('id') id: string) {
+    return this.ordersService.getOrderPayment(req.user.userId, id);
+  }
 }

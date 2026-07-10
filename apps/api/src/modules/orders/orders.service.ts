@@ -223,4 +223,15 @@ export class OrdersService {
     if (!order) throw new NotFoundException('Order not found');
     return order;
   }
+
+  async getOrderPayment(userId: string, orderId: string) {
+    const order = await this.prisma.order.findFirst({
+      where: { id: orderId, userId },
+      include: { payment: true },
+    });
+
+    if (!order) throw new NotFoundException('Order not found');
+    if (!order.payment) throw new NotFoundException('Payment details not found for this order');
+    return order.payment;
+  }
 }

@@ -8,19 +8,19 @@ Last Updated: July 7, 2026
 
 # Current Phase
 
-Phase 6 — Payments
+Phase 7 — Admin
 
 ---
 
 # Current Milestone
 
-Cash on Delivery
+Dashboard
 
 ---
 
 # Current Task
 
-Implement Cash on Delivery backend checks and state transition logic.
+Implement Admin Dashboard statistics and aggregation queries.
 
 ---
 
@@ -160,7 +160,7 @@ Search            ████████████████████ 1
 
 Shopping          ████████████████████ 100%
 
-Payments          ░░░░░░░░░░░░░░░░░░░░   0%
+Payments          ████████████████████ 100%
 
 Admin             ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -170,7 +170,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-70%
+75%
 ```
 
 ---
@@ -264,3 +264,15 @@ Overall Project
 - Updated Navbar with Wishlist heart icon and MiniCart cart icon with badge.
 - Registered CartDrawer globally in Providers layout.
 - Verified API build passes clean. Web build in progress.
+- Designed and implemented generic adapter-based Payments Architecture (Milestone 1) and registered PaymentsModule.
+- Updated database schema and synced payment tracking/audit columns (gateway_reference, verified_at, metadata).
+- Implemented Cash on Delivery gateway provider with automatic payment confirmation upon order delivery (Milestone 2).
+- Implemented manual and webhook verification endpoints with robust state transition logic and automatic inventory reservations release on order cancellation.
+- Added compatibility fix for JwtStrategy mapping request user ID to consistently support userId, sub, and id context properties.
+- Added unit test specs for PaymentsService covering all state transitions, inventory synchronizations, and gateway mock assertions.
+- Implemented SSLCommerz gateway integration with payment initialization, redirect links, success/failure/cancel callbacks, and IPN server-to-server validation.
+- Implemented tokenized bKash checkout gateway supporting token grant authorization, payment initiation, manual execution, and state query checkups.
+- Implemented Nagad checkout gateway using dfs check-out APIs and mock callbacks support in dev environment.
+- Implemented Rocket manual payment gateway placeholder, isolating Dutch-Bangla mobile banking actions behind consistent adapter interfaces.
+- Exposed success, failure, cancel, and IPN callback routing endpoints in PaymentsController that handle redirect operations back to next/web client views.
+- Successfully completed Phase 6 Payments.

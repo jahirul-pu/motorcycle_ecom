@@ -17,6 +17,7 @@ import { CartModule } from './modules/cart/cart.module';
 import { CouponsModule } from './modules/coupons/coupons.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
+import { PaymentsModule } from './modules/payments/payments.module';
 
 @Module({
   imports: [
@@ -80,6 +81,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
     CouponsModule,
     OrdersModule,
     NotificationsModule,
+    PaymentsModule,
   ],
   providers: [
     {
