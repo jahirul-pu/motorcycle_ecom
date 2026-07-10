@@ -126,27 +126,27 @@ Version: 1.0
 
 # Phase 4 — Search
 
-- [ ] Search API
-- [ ] Search UI
-- [ ] Suggestions
-- [ ] Filters
-- [ ] Sorting
-- [ ] Pagination
-- [ ] URL State
-- [ ] Search Optimization
+- [x] Search API
+- [x] Search UI
+- [x] Suggestions
+- [x] Filters
+- [x] Sorting
+- [x] Pagination
+- [x] URL State
+- [x] Search Optimization
 
 ---
 
 # Phase 5 — Shopping
 
-- [ ] Wishlist
-- [ ] Shopping Cart
-- [ ] Coupons
-- [ ] Checkout
-- [ ] Bangladesh Checkout
-- [ ] Orders
-- [ ] Order History
-- [ ] Notifications
+- [x] Wishlist
+- [x] Shopping Cart
+- [x] Coupons
+- [x] Checkout
+- [x] Bangladesh Checkout
+- [x] Orders
+- [x] Order History
+- [x] Notifications
 
 ---
 
@@ -209,7 +209,7 @@ Phase 1
 Phase 2
 
 ```
-82%
+100%
 ```
 
 Phase 3
@@ -221,13 +221,13 @@ Phase 3
 Phase 4
 
 ```
-0%
+100%
 ```
 
 Phase 5
 
 ```
-0%
+100%
 ```
 
 Phase 6
@@ -255,25 +255,25 @@ Phase 8
 Current Phase
 
 ```
-Phase 4
+Phase 5
 ```
 
 Current Milestone
 
 ```
-Search API
+Notifications
 ```
 
 Current Task
 
 ```
-Implement search endpoints supporting keyword index, query matches, and fuzzy suggestions.
+Implement order confirmation email mock and order notification system.
 ```
 
 Status
 
 ```
-Not Started
+In Progress
 ```
 
 ---
@@ -289,7 +289,7 @@ Use this section to record implementation notes, blockers, architectural decisio
 Overall Progress
 
 ```
-50%
+70%
 ```
 
 Version

@@ -8,19 +8,19 @@ Last Updated: July 7, 2026
 
 # Current Phase
 
-Phase 5 — Shopping
+Phase 6 — Payments
 
 ---
 
 # Current Milestone
 
-Wishlist
+Cash on Delivery
 
 ---
 
 # Current Task
 
-Implement backend Wishlist CRUD operations and endpoints.
+Implement Cash on Delivery backend checks and state transition logic.
 
 ---
 
@@ -158,7 +158,7 @@ Catalog           ████████████████████ 1
 
 Search            ████████████████████ 100%
 
-Shopping          ░░░░░░░░░░░░░░░░░░░░   0%
+Shopping          ████████████████████ 100%
 
 Payments          ░░░░░░░░░░░░░░░░░░░░   0%
 
@@ -170,7 +170,7 @@ Production        ░░░░░░░░░░░░░░░░░░░░  
 Overall Project
 
 ```
-60%
+70%
 ```
 
 ---
@@ -239,6 +239,28 @@ Overall Project
 - Implemented `/search` page layout with sorting dropdown, active filters chips, and pagination.
 - Added URL state synchronization and JSON-LD structured search schema.
 
----
-
-Complete Phase 3 Product Module, pricing display, skeletons, image galleries.
+- Added Phase 5 Shopping type definitions to packages/types (WishlistItem, Cart, CartItem, Coupon, Order, OrderItem, Payment, CheckoutDto, and all DTOs).
+- Implemented NestJS WishlistModule with full CRUD endpoints (GET/POST/DELETE /wishlist).
+- Implemented NestJS CartModule with auto-create, inventory validation, and full CRUD (GET/POST/PATCH/DELETE /cart, /cart/items).
+- Implemented NestJS CouponsModule with expiry, usage limit, per-user and global limit validation (POST /coupons/apply).
+- Implemented NestJS OrdersModule with full checkout transaction: inventory reservation, order number generation (MH-YYYYMMDD-XXXX), product/price/address snapshots, coupon usage recording, cart clearing (POST /orders/checkout, GET /orders, GET /orders/:id).
+- Registered all 4 new shopping modules in AppModule.
+- Created Zustand wishlist.store.ts persisting product IDs for instant heart-toggle UI.
+- Created Zustand cart.store.ts with drawer state, coupon tracking, and derived selectors.
+- Created wishlist.service.ts, cart.service.ts, coupon.service.ts, orders.service.ts frontend API wrappers.
+- Built WishlistButton component with optimistic UI toggle.
+- Built WishlistCard component with move-to-cart and remove actions.
+- Built MiniCart navbar icon with animated item count badge.
+- Built CartItem component with quantity stepper and remove.
+- Built CouponInput component with applied/removed states.
+- Built CartDrawer slide-in panel with full cart summary and checkout CTA.
+- Built ShippingSelector (Inside Dhaka ৳60 / Outside Dhaka ৳120).
+- Built PaymentSelector (Cash on Delivery, bKash, Nagad, Rocket).
+- Built OrderSummary sticky sidebar for checkout.
+- Built OrderCard for order history list with status badges.
+- Built OrderTimeline with animated step progression.
+- Created /wishlist, /cart, /checkout, /order-success pages.
+- Created /account/orders and /account/orders/[id] pages.
+- Updated Navbar with Wishlist heart icon and MiniCart cart icon with badge.
+- Registered CartDrawer globally in Providers layout.
+- Verified API build passes clean. Web build in progress.

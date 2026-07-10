@@ -252,3 +252,116 @@ export interface Product {
   specifications?: ProductSpecification[];
   compatibility?: ProductCompatibility[];
 }
+
+// ─── Phase 5: Shopping ───────────────────────────────────────────────────────
+
+export interface WishlistItem {
+  id: string;
+  userId: string;
+  productId: string;
+  createdAt: string;
+  product?: Product;
+}
+
+export interface CartItem {
+  id: string;
+  cartId: string;
+  productId: string;
+  quantity: number;
+  createdAt: string;
+  updatedAt: string;
+  product?: Product;
+}
+
+export interface Cart {
+  id: string;
+  userId: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: CartItem[];
+}
+
+export interface Coupon {
+  id: string;
+  code: string;
+  type: 'percentage' | 'fixed';
+  value: number;
+  minimumOrder: number;
+  maximumDiscount: number | null;
+  usageLimit: number | null;
+  expiresAt: string | null;
+  isActive: boolean;
+}
+
+export interface ApplyCouponDto {
+  code: string;
+}
+
+export interface AddToCartDto {
+  productId: string;
+  quantity: number;
+}
+
+export interface UpdateCartItemDto {
+  quantity: number;
+}
+
+export interface OrderItem {
+  id: string;
+  orderId: string;
+  productId: string;
+  sku: string;
+  name: string;
+  price: number;
+  quantity: number;
+  subtotal: number;
+}
+
+export interface Payment {
+  id: string;
+  orderId: string;
+  method: string;
+  gateway: string | null;
+  transactionId: string | null;
+  amount: number;
+  status: string;
+  paidAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Order {
+  id: string;
+  orderNumber: string;
+  userId: string;
+  status: string;
+  subtotal: number;
+  discount: number;
+  shipping: number;
+  total: number;
+  paymentStatus: string;
+  shippingStatus: string;
+  addressSnapshot: Record<string, any>;
+  createdAt: string;
+  updatedAt: string;
+  items?: OrderItem[];
+  payment?: Payment | null;
+}
+
+export interface CheckoutDto {
+  addressId: string;
+  paymentMethod: string;
+  couponCode?: string;
+  deliveryNote?: string;
+}
+
+export interface Notification {
+  id: string;
+  userId: string;
+  title: string;
+  message: string;
+  isRead: boolean;
+  createdAt: string;
+}
+
+

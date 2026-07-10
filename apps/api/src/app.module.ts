@@ -12,6 +12,11 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { BrandsModule } from './modules/brands/brands.module';
 import { ProductsModule } from './modules/products/products.module';
 import { SearchModule } from './modules/search/search.module';
+import { WishlistModule } from './modules/wishlist/wishlist.module';
+import { CartModule } from './modules/cart/cart.module';
+import { CouponsModule } from './modules/coupons/coupons.module';
+import { OrdersModule } from './modules/orders/orders.module';
+import { NotificationsModule } from './modules/notifications/notifications.module';
 
 @Module({
   imports: [
@@ -70,6 +75,11 @@ import { SearchModule } from './modules/search/search.module';
     BrandsModule,
     ProductsModule,
     SearchModule,
+    WishlistModule,
+    CartModule,
+    CouponsModule,
+    OrdersModule,
+    NotificationsModule,
   ],
   providers: [
     {
