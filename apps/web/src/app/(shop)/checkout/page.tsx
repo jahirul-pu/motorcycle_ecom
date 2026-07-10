@@ -22,14 +22,20 @@ export default function CheckoutPage() {
 
   const [addresses, setAddresses] = React.useState<Address[]>([]);
   const [selectedAddressId, setSelectedAddressId] = React.useState('');
-  const [shipping, setShipping] = React.useState<{ id: string; price: number }>({ id: 'inside-dhaka', price: 60 });
+  const [shipping, setShipping] = React.useState<{ id: string; price: number }>({
+    id: 'inside-dhaka',
+    price: 60,
+  });
   const [paymentMethod, setPaymentMethod] = React.useState('Cash on Delivery');
   const [deliveryNote, setDeliveryNote] = React.useState('');
   const [placing, setPlacing] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (!isAuthenticated) { setLoading(false); return; }
+    if (!isAuthenticated) {
+      setLoading(false);
+      return;
+    }
     Promise.all([cartService.getCart(), addressesService.getAddresses()])
       .then(([cartData, addrData]) => {
         setCart(cartData);
@@ -41,10 +47,15 @@ export default function CheckoutPage() {
       .finally(() => setLoading(false));
   }, [isAuthenticated, setCart]);
 
-
   const handlePlaceOrder = async () => {
-    if (!selectedAddressId) { toast.error('Please select a delivery address'); return; }
-    if (!cart || cart.items.length === 0) { toast.error('Your cart is empty'); return; }
+    if (!selectedAddressId) {
+      toast.error('Please select a delivery address');
+      return;
+    }
+    if (!cart || cart.items.length === 0) {
+      toast.error('Your cart is empty');
+      return;
+    }
 
     setPlacing(true);
     try {
@@ -69,7 +80,12 @@ export default function CheckoutPage() {
         <ShieldCheck className="mx-auto h-16 w-16 text-zinc-200 mb-4" />
         <h1 className="text-2xl font-bold">Checkout</h1>
         <p className="mt-2 text-zinc-500">Please sign in to continue.</p>
-        <Link href="/login" className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white">Sign In</Link>
+        <Link
+          href="/login"
+          className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white"
+        >
+          Sign In
+        </Link>
       </main>
     );
   }
@@ -79,7 +95,9 @@ export default function CheckoutPage() {
       <main className="container mx-auto max-w-5xl px-4 py-10">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-4">
-            {[...Array(3)].map((_, i) => <div key={i} className="h-32 animate-pulse rounded-xl bg-zinc-100" />)}
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="h-32 animate-pulse rounded-xl bg-zinc-100" />
+            ))}
           </div>
           <div className="h-64 animate-pulse rounded-2xl bg-zinc-100" />
         </div>
@@ -109,7 +127,10 @@ export default function CheckoutPage() {
             {addresses.length === 0 ? (
               <div className="rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-6 text-center">
                 <p className="text-sm text-zinc-500">No saved addresses.</p>
-                <Link href="/account/addresses" className="mt-2 inline-block text-sm font-semibold text-primary hover:underline">
+                <Link
+                  href="/account/addresses"
+                  className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
+                >
                   Add an address →
                 </Link>
               </div>
@@ -136,7 +157,9 @@ export default function CheckoutPage() {
                       <p className="text-sm font-semibold text-zinc-800">
                         {addr.recipientName}
                         {addr.isDefault && (
-                          <span className="ml-2 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Default</span>
+                          <span className="ml-2 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
+                            Default
+                          </span>
                         )}
                       </p>
                       <p className="text-xs text-zinc-500 mt-0.5">{addr.phone}</p>
@@ -185,9 +208,13 @@ export default function CheckoutPage() {
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-4 text-base font-bold text-white hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {placing ? (
-              <><Loader2 className="h-5 w-5 animate-spin" /> Placing Order...</>
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" /> Placing Order...
+              </>
             ) : (
-              <><ShieldCheck className="h-5 w-5" /> Place Order</>
+              <>
+                <ShieldCheck className="h-5 w-5" /> Place Order
+              </>
             )}
           </button>
         </div>

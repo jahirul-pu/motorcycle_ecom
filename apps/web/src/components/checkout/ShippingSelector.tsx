@@ -53,7 +53,9 @@ export default function ShippingSelector({ selected, onChange }: ShippingSelecto
               />
               <div>
                 <p className="text-sm font-semibold text-zinc-800">{opt.label}</p>
-                <p className="text-xs text-zinc-400">{opt.description} · {opt.estimatedDays}</p>
+                <p className="text-xs text-zinc-400">
+                  {opt.description} · {opt.estimatedDays}
+                </p>
               </div>
             </div>
             <span className="text-sm font-bold text-zinc-900">৳{opt.price}</span>

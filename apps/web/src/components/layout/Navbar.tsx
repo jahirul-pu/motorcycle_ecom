@@ -80,7 +80,6 @@ export default function Navbar() {
           {/* Cart icon with badge */}
           <MiniCart />
 
-
           {/* Auth section */}
           {mounted && isAuthenticated && user ? (
             <div className="flex items-center gap-2 ml-1">

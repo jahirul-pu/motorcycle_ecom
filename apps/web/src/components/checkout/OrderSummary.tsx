@@ -29,14 +29,21 @@ export default function OrderSummary({ shipping }: OrderSummaryProps) {
             <li key={item.id} className="flex gap-3 items-center">
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-zinc-200">
                 {imageUrl ? (
-                  <Image src={imageUrl} alt={item.product?.name ?? ''} fill className="object-cover" />
+                  <Image
+                    src={imageUrl}
+                    alt={item.product?.name ?? ''}
+                    fill
+                    className="object-cover"
+                  />
                 ) : null}
                 <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-700 text-[9px] font-bold text-white">
                   {item.quantity}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium text-zinc-700 line-clamp-1">{item.product?.name}</p>
+                <p className="text-xs font-medium text-zinc-700 line-clamp-1">
+                  {item.product?.name}
+                </p>
                 <p className="text-xs text-zinc-400">{item.product?.brand?.name}</p>
               </div>
               <span className="text-sm font-bold text-zinc-900 shrink-0">

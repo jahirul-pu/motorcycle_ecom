@@ -27,8 +27,7 @@ export const useWishlistStore = create<WishlistState>()(
           next.delete(id);
           return { productIds: next, _productIdsArray: Array.from(next) };
         }),
-      setIds: (ids) =>
-        set({ productIds: new Set(ids), _productIdsArray: ids }),
+      setIds: (ids) => set({ productIds: new Set(ids), _productIdsArray: ids }),
       has: (id) => get().productIds.has(id),
     }),
     {

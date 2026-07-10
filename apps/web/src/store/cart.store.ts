@@ -42,8 +42,7 @@ export const useCartStore = create<CartState>()((set, get) => ({
     const cart = get().cart;
     if (!cart) return 0;
     return cart.items.reduce((sum: number, item: CartItem) => {
-      const price =
-        item.product?.price?.salePrice ?? item.product?.price?.regularPrice ?? 0;
+      const price = item.product?.price?.salePrice ?? item.product?.price?.regularPrice ?? 0;
       return sum + price * item.quantity;
     }, 0);
   },

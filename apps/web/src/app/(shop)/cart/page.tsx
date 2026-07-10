@@ -16,13 +16,16 @@ export default function CartPage() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (!isAuthenticated) { setLoading(false); return; }
-    cartService.getCart()
+    if (!isAuthenticated) {
+      setLoading(false);
+      return;
+    }
+    cartService
+      .getCart()
       .then(setCart)
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [isAuthenticated, setCart]);
-
 
   const sub = subtotal();
   const shipping = sub > 0 ? 60 : 0;
@@ -34,7 +37,10 @@ export default function CartPage() {
         <ShoppingBag className="mx-auto h-16 w-16 text-zinc-200 mb-4" />
         <h1 className="text-2xl font-bold text-zinc-800">Your Cart</h1>
         <p className="mt-2 text-zinc-500">Sign in to view your cart.</p>
-        <Link href="/login" className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+        <Link
+          href="/login"
+          className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+        >
           Sign In
         </Link>
       </main>
@@ -58,7 +64,10 @@ export default function CartPage() {
         <div className="flex flex-col items-center gap-4 py-20 text-center">
           <ShoppingBag className="h-14 w-14 text-zinc-200" />
           <p className="text-lg font-semibold text-zinc-600">Your cart is empty</p>
-          <Link href="/products" className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+          <Link
+            href="/products"
+            className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+          >
             Browse Products
           </Link>
         </div>

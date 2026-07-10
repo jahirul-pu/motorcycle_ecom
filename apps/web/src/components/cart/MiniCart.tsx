@@ -15,10 +15,12 @@ export default function MiniCart() {
     setMounted(true);
     // Load cart on mount if authenticated and no cart loaded
     if (isAuthenticated && !cart) {
-      cartService.getCart().then(setCart).catch(() => {});
+      cartService
+        .getCart()
+        .then(setCart)
+        .catch(() => {});
     }
   }, [isAuthenticated, cart, setCart]);
-
 
   const count = mounted ? itemCount() : 0;
 

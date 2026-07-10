@@ -21,10 +21,7 @@ describe('WishlistService', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        WishlistService,
-        { provide: PrismaService, useValue: mockPrismaService },
-      ],
+      providers: [WishlistService, { provide: PrismaService, useValue: mockPrismaService }],
     }).compile();
 
     service = module.get<WishlistService>(WishlistService);
@@ -52,24 +49,24 @@ describe('WishlistService', () => {
     it('should throw NotFoundException if product does not exist', async () => {
       prisma.product.findUnique.mockResolvedValue(null);
 
-      await expect(service.addToWishlist('user1', 'prod1')).rejects.toThrow(
-        NotFoundException,
-      );
+      await expect(service.addToWishlist('user1', 'prod1')).rejects.toThrow(NotFoundException);
     });
 
     it('should throw ConflictException if product already in wishlist', async () => {
       prisma.product.findUnique.mockResolvedValue({ id: 'prod1' });
       prisma.wishlist.findUnique.mockResolvedValue({ id: 'wish1' });
 
-      await expect(service.addToWishlist('user1', 'prod1')).rejects.toThrow(
-        ConflictException,
-      );
+      await expect(service.addToWishlist('user1', 'prod1')).rejects.toThrow(ConflictException);
     });
 
     it('should create new wishlist item if valid', async () => {
       prisma.product.findUnique.mockResolvedValue({ id: 'prod1' });
       prisma.wishlist.findUnique.mockResolvedValue(null);
-      prisma.wishlist.create.mockResolvedValue({ id: 'wish1', userId: 'user1', productId: 'prod1' });
+      prisma.wishlist.create.mockResolvedValue({
+        id: 'wish1',
+        userId: 'user1',
+        productId: 'prod1',
+      });
 
       const result = await service.addToWishlist('user1', 'prod1');
       expect(result).toBeDefined();
@@ -81,9 +78,7 @@ describe('WishlistService', () => {
     it('should throw NotFoundException if wishlist item not found', async () => {
       prisma.wishlist.findUnique.mockResolvedValue(null);
 
-      await expect(service.removeFromWishlist('user1', 'prod1')).rejects.toThrow(
-        NotFoundException,
-      );
+      await expect(service.removeFromWishlist('user1', 'prod1')).rejects.toThrow(NotFoundException);
     });
 
     it('should delete wishlist item if found', async () => {

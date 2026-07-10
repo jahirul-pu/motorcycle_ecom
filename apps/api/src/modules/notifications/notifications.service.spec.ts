@@ -19,10 +19,7 @@ describe('NotificationsService', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        NotificationsService,
-        { provide: PrismaService, useValue: mockPrismaService },
-      ],
+      providers: [NotificationsService, { provide: PrismaService, useValue: mockPrismaService }],
     }).compile();
 
     service = module.get<NotificationsService>(NotificationsService);
@@ -59,9 +56,7 @@ describe('NotificationsService', () => {
     it('should throw NotFoundException if notification does not exist', async () => {
       prisma.notification.findFirst.mockResolvedValue(null);
 
-      await expect(service.markAsRead('user1', 'notif1')).rejects.toThrow(
-        NotFoundException,
-      );
+      await expect(service.markAsRead('user1', 'notif1')).rejects.toThrow(NotFoundException);
     });
 
     it('should mark single notification as read if found', async () => {

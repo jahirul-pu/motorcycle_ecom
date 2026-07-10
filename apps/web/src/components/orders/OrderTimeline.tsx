@@ -4,11 +4,11 @@ import * as React from 'react';
 import { CheckCircle2, Clock, Package, Truck, Star } from 'lucide-react';
 
 const TIMELINE_STEPS = [
-  { status: 'Pending',   label: 'Order Placed',   icon: Clock },
-  { status: 'Confirmed', label: 'Confirmed',       icon: CheckCircle2 },
-  { status: 'Packed',    label: 'Packed',          icon: Package },
-  { status: 'Shipped',   label: 'Shipped',         icon: Truck },
-  { status: 'Delivered', label: 'Delivered',       icon: Star },
+  { status: 'Pending', label: 'Order Placed', icon: Clock },
+  { status: 'Confirmed', label: 'Confirmed', icon: CheckCircle2 },
+  { status: 'Packed', label: 'Packed', icon: Package },
+  { status: 'Shipped', label: 'Shipped', icon: Truck },
+  { status: 'Delivered', label: 'Delivered', icon: Star },
 ];
 
 const STATUS_ORDER = ['Pending', 'Confirmed', 'Packed', 'Shipped', 'Delivered'];

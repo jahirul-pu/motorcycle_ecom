@@ -27,10 +27,7 @@ describe('CartService', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        CartService,
-        { provide: PrismaService, useValue: mockPrismaService },
-      ],
+      providers: [CartService, { provide: PrismaService, useValue: mockPrismaService }],
     }).compile();
 
     service = module.get<CartService>(CartService);
@@ -63,17 +60,13 @@ describe('CartService', () => {
 
   describe('addItem', () => {
     it('should throw BadRequestException if quantity < 1', async () => {
-      await expect(service.addItem('user1', 'prod1', 0)).rejects.toThrow(
-        BadRequestException,
-      );
+      await expect(service.addItem('user1', 'prod1', 0)).rejects.toThrow(BadRequestException);
     });
 
     it('should throw NotFoundException if product does not exist or inactive', async () => {
       prisma.product.findFirst.mockResolvedValue(null);
 
-      await expect(service.addItem('user1', 'prod1', 2)).rejects.toThrow(
-        NotFoundException,
-      );
+      await expect(service.addItem('user1', 'prod1', 2)).rejects.toThrow(NotFoundException);
     });
 
     it('should throw BadRequestException if insufficient stock', async () => {
@@ -83,9 +76,7 @@ describe('CartService', () => {
         inventory: { availableQuantity: 1 },
       });
 
-      await expect(service.addItem('user1', 'prod1', 2)).rejects.toThrow(
-        BadRequestException,
-      );
+      await expect(service.addItem('user1', 'prod1', 2)).rejects.toThrow(BadRequestException);
     });
   });
 });

@@ -53,7 +53,9 @@ export default function CartItem({ item }: CartItemProps) {
   };
 
   return (
-    <div className={`flex gap-3 py-4 border-b border-zinc-100 last:border-0 ${loading ? 'opacity-60' : ''}`}>
+    <div
+      className={`flex gap-3 py-4 border-b border-zinc-100 last:border-0 ${loading ? 'opacity-60' : ''}`}
+    >
       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-zinc-100">
         {imageUrl ? (
           <Image src={imageUrl} alt={product?.name ?? 'Product'} fill className="object-cover" />

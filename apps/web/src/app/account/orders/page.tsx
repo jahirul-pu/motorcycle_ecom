@@ -14,8 +14,12 @@ export default function OrdersPage() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (!isAuthenticated) { setLoading(false); return; }
-    ordersService.getOrders()
+    if (!isAuthenticated) {
+      setLoading(false);
+      return;
+    }
+    ordersService
+      .getOrders()
       .then(setOrders)
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -27,7 +31,10 @@ export default function OrdersPage() {
         <Package className="mx-auto h-16 w-16 text-zinc-200 mb-4" />
         <h1 className="text-2xl font-bold text-zinc-800">My Orders</h1>
         <p className="mt-2 text-zinc-500">Sign in to view your order history.</p>
-        <Link href="/login" className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+        <Link
+          href="/login"
+          className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+        >
           Sign In
         </Link>
       </main>
@@ -59,7 +66,10 @@ export default function OrdersPage() {
           <Package className="h-14 w-14 text-zinc-200" />
           <p className="text-lg font-semibold text-zinc-600">No orders yet</p>
           <p className="text-sm text-zinc-400">Your orders will appear here once you place one.</p>
-          <Link href="/products" className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+          <Link
+            href="/products"
+            className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+          >
             Browse Products
           </Link>
         </div>

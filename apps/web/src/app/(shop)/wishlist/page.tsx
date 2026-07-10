@@ -20,7 +20,8 @@ export default function WishlistPage() {
       setLoading(false);
       return;
     }
-    wishlistService.getWishlist()
+    wishlistService
+      .getWishlist()
       .then((data: WishlistItem[]) => {
         setItems(data);
         setIds(data.map((i) => i.productId));
@@ -39,7 +40,10 @@ export default function WishlistPage() {
         <Heart className="mx-auto h-16 w-16 text-zinc-200 mb-4" />
         <h1 className="text-2xl font-bold text-zinc-800">Your Wishlist</h1>
         <p className="mt-2 text-zinc-500">Sign in to save your favourite products.</p>
-        <Link href="/login" className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+        <Link
+          href="/login"
+          className="mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+        >
           Sign In
         </Link>
       </main>
@@ -71,7 +75,10 @@ export default function WishlistPage() {
           <Heart className="h-14 w-14 text-zinc-200" />
           <p className="text-lg font-semibold text-zinc-600">Your wishlist is empty</p>
           <p className="text-sm text-zinc-400">Browse our products and save the ones you love.</p>
-          <Link href="/products" className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+          <Link
+            href="/products"
+            className="mt-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-colors"
+          >
             Browse Products
           </Link>
         </div>

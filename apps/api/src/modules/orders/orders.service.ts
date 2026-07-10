@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-  BadRequestException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { CouponsService } from '../coupons/coupons.service';
 import { NotificationsService } from '../notifications/notifications.service';
@@ -14,7 +10,6 @@ export class OrdersService {
     private couponsService: CouponsService,
     private notificationsService: NotificationsService,
   ) {}
-
 
   private generateOrderNumber(): string {
     const date = new Date();
@@ -78,8 +73,7 @@ export class OrdersService {
 
     // Bangladesh shipping: 60 inside Dhaka, 120 outside (simple flat rate)
     const shipping =
-      address.city.toLowerCase().includes('dhaka') ||
-      address.area.toLowerCase().includes('dhaka')
+      address.city.toLowerCase().includes('dhaka') || address.area.toLowerCase().includes('dhaka')
         ? 60
         : 120;
 
@@ -203,7 +197,6 @@ export class OrdersService {
 
     return order;
   }
-
 
   async getOrders(userId: string) {
     return this.prisma.order.findMany({
